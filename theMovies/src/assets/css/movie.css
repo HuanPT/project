@@ -1,0 +1,215 @@
+@import url("bootstrap/dist/css/bootstrap.min.css");
+@import url("common.css");
+@import url("responsive.css");
+
+.film__info {
+    position: relative;
+}
+
+.img__big {
+    position: relative;
+}
+
+.img__big::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.film__info-text {
+    position: absolute;
+    left: 1rem;
+    bottom: 1.5rem;
+}
+
+.film__info-wrap .icon-play {
+    opacity: .8;
+    top: calc(0% + 5rem);
+    left: calc(100% - 5rem);
+}
+
+.film__info-wrap .icon-play:hover {
+    color: #fff;
+    transform: translate(-50%, -50%) scale(1.7);
+}
+
+.film__info-text h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.film__info-text h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-block: 1rem;
+}
+
+.film__info-text .btn-red {
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-block: 0.75rem;
+}
+
+.list__button {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 2rem;
+}
+
+.addTo__account {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    position: relative;
+    cursor: pointer;
+    transition: all .2s;
+    color: var(--orange-color);
+    background: var(--black-color);
+}
+
+.addTo__account:hover {
+    --black-color: #333;
+    background: var(--black-color);
+}
+
+.addTo__account:hover .addTo__account-des {
+    display: block;
+}
+
+.addTo__account-des {
+    --growth-from: 0.2;
+    --growth-to: 1;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    left: calc(50% + 0.75rem);
+    animation: fadeIn ease-in 0.15s,
+        growth ease-in 0.15s;
+    transition: all ease-in .15s;
+    will-change: transform, opacity;
+}
+
+.addTo__account-des .triangle {
+    border-bottom: 1rem solid var(--blue-color);
+}
+
+.des {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    white-space: nowrap;
+    width: fit-content;
+    position: absolute;
+    padding-inline: 1rem;
+    top: 0.75rem;
+    right: 50%;
+    border-radius: .5rem;
+    transform: translateX(calc(50% - 0.75rem));
+}
+
+.film__info-wrap {
+    position: relative;
+}
+
+.detail__movie {
+    list-style: none;
+    font-weight: 500;
+    margin-block: 1.5rem;
+    padding-inline: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.detail__movie>li:last-child {
+    display: grid;
+    gap: 1rem;
+}
+
+.detail__movie li p {
+    margin: 0;
+    white-space: nowrap;
+    transition: all.2s;
+    color: var(--white-color);
+}
+
+.detail__movie>li {
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1rem;
+    color: var(--text-gray);
+}
+
+.detail__movie li a {
+    color: var(--text-gray);
+    text-decoration: none;
+}
+
+.imdb {
+    background: #e3b71e;
+    padding-inline: 0.5rem;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.cast__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+    padding-left: 4rem;
+}
+
+.cast {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cast__img {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all .2s;
+
+}
+
+.cast:hover .cast__img {
+    transform: translateY(-.5rem);
+    box-shadow: rgb(0 0 0 / 56%) 0 .3rem .4rem .3rem;
+}
+
+.cast:hover p {
+    color: var(--text-gray)
+}
+
+.cast__img img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overview */
+.overview {
+    padding-inline: 2rem;
+    border-bottom: 0.1rem solid #333;
+}
+
+.overview h1 {
+    font-size: 2.6rem;
+    font-style: italic;
+    color: var(--orange-color);
+}
+
+.section__movie-list {
+    padding-inline: 2rem;
+}

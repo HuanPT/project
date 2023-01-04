@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/assets/img/faviconLogo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheMovies</title>
+
+  <!-- Link font Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Link owl carousel -->
+  <link rel="stylesheet" href="./src/lib/Owlcarousel2/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="./src/lib/Owlcarousel2/assets/owl.theme.default.min.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+
+        <!-- header Mobile -->
+        <div class="col-12 d-md-none">
+          <div class="header__top-wrap">
+            <div class="header__search">
+
+              <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                  <!-- <input type="text" placeholder="Tìm kiếm..."> -->
+                  <label class="input-tag">
+                    <input type="text">
+                    <span class="place">
+                      Tìm kiếm
+                    </span>
+                  </label>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="header__top-logo">
+              <a href="/"><img src="./src/assets/img/paner.png" alt="logo"></a>
+            </div>
+
+            <div class="header__navbars">
+              <div class="btn__navbars">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+              <div class="navbars__mobile-detail">
+                <div class="overlay"></div>
+                <div class="navbars__mobile-wrap">
+                  <div class="navbars__mobile-header">
+                    <div class="mobile__user-name">
+                      <h3>Chào HuanPT!</h3>
+                      <div class="user__name-avatar">
+                        <i class="fa-solid fa-user"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="navbars__mobile-main">
+                    <ul class="navbars__mobile-list">
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          <i class="fa-solid fa-circle-info"></i>
+                          Tài khoản
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          <i class="fa-solid fa-heart"></i>
+                          Phim yêu thích
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          <i class="fa-solid fa-bookmark"></i>
+                          Phim đã lưu
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          <i class="fa-solid fa-clock-rotate-left"></i>
+                          Lịch sử xem</a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                          Đăng xuất
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          Phim hot
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          Phim lẻ
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          Phim bộ
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="user-menu-item">
+                          Phim mới
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header desktop -->
+        <div class="col-12 d-none d-md-block">
+          <div class="header__top-wrap">
+
+
+            <div class="header__top-logo">
+              <a href="/"><img src="./src/assets/img/paner.png" alt="logo"></a>
+            </div>
+
+            <div class="header__center d-flex">
+              <ul class="header__center-menu d-flex">
+                <li class="center-menu-item">
+                  <a href="#">Phim hot</a>
+                </li>
+                <li class="center-menu-item">
+                  <a href="#">Phim lẻ</a>
+                </li>
+                <li class="center-menu-item">
+                  <a href="#">Phim bộ</a>
+                </li>
+                <li class="center-menu-item">
+                  <a href="#">Phim mới</a>
+                </li>
+              </ul>
+
+              <div class="header__center-search">
+                <label class="input-tag">
+                  <input type="text">
+                  <span class="place">
+                    Tìm kiếm
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="header__nav-user d-flex">
+              <i class="user-icon fa-solid fa-user"></i>
+
+              <div class="header__nav-wrap">
+                <div class="triangle"></div>
+                <ul class="nav-user-menu">
+                  <li>
+                    <a class="user-menu-item" href="#"><i class="fa-solid fa-circle-info"></i>
+                      Tài khoản
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="user-menu-item">
+                      <i class="fa-solid fa-heart"></i>
+                      Phim yêu thích
+                    </a>
+                  </li>
+                  <li>
+                    <a class="user-menu-item" href="#"><i class="fa-solid fa-bookmark"></i>
+                      Phim đã lưu
+                    </a>
+                  </li>
+                  <li>
+                    <a class="user-menu-item" href="#"><i class="fa-solid fa-clock-rotate-left"></i>
+                      Lịch sử xem
+                    </a>
+                  </li>
+                  <li>
+                    <a class="user-menu-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>
+                      Đăng xuất
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="film__info">
+            <div class="film__info-wrap">
+              <div class="img__big">
+                <img src="./src/assets/img/meo-beo-sieu-dang.jpg" alt="conan">
+              </div>
+              <div class="film__info-text">
+                <h1>
+                  Mèo Béo Siêu Đẳng
+                </h1>
+                <h2>
+                  The Amazing Maurice (2022)
+                </h2>
+                <ul class="list__button">
+                  <li>
+                    <a class="btn btn-red">
+                      <i class="fa-regular fa-circle-play"></i>
+                      Xem Phim
+                    </a>
+                  </li>
+                  <li>
+                    <div class="addTo__account favourite">
+                      <div class="addTo__account-wrap">
+                        <span class="remove__favourite">
+                          <i class="fa-regular fa-heart"></i>
+                        </span>
+                        <span class="add__favourite d-none">
+                          <i class="fa-solid fa-heart"></i>
+                        </span>
+                      </div>
+                      <div class="addTo__account-des">
+                        <div class="triangle"></div>
+                        <div class="des">Thêm vào yêu thích</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="addTo__account bookmark">
+                      <div class="addTo__account-wrap">
+                        <span class="remove__bookmark d-none">
+                          <i class="fa-regular fa-bookmark"></i>
+                        </span>
+                        <span class="add__bookmark">
+                          <i class="fa-solid fa-bookmark"></i>
+                        </span>
+                      </div>
+                      <div class="addTo__account-des">
+                        <div class="triangle"></div>
+                        <div class="des">Thêm vào danh sách xem</div>
+                      </div>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+              </div>
+              <a href="#" class="icon-play">
+                <i class="fa-solid fa-play"></i>
+              </a>
+            </div>
+
+            <ul class="detail__movie">
+              <li>
+                <p>Năm phát hành:</p>
+                <a href="#">2022</a>
+              </li>
+              <li>
+                <p>Thể loại:</p>
+                <a href="#">Phim hoạt hình</a>
+              </li>
+              <li>
+                <p>Quốc gia:</p>
+                <a href="#">Phim Âu Mỹ</a>
+              </li>
+              <li>
+                <p>Đạo diễn:</p>
+                <a href="#">Toby Genkel,</a> <a href="#">Florian Westermann</a>
+              </li>
+              <li>
+                <p>Điểm IMDb:</p>
+                <span class="imdb">6.4</span>
+              </li>
+              <li>
+                <p>Thời lượng:</p>
+                1 giờ 33 phút
+              </li>
+              <li>
+                <p>Diễn viên:</p>
+                <ul class="cast__list">
+                  <li>
+                    <a class="cast">
+                      <div class="cast__img">
+                        <img src="./src/assets/img/cast1.jpg" alt="cast1">
+                      </div>
+
+                      <div class="cast__name">
+                        <p>Hugh Laurie</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="cast">
+                      <div class="cast__img">
+                        <img src="./src/assets/img/cast2.jpg" alt="cast1">
+                      </div>
+
+                      <div class="cast__name">
+                        <p>Emilia Clarke</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="cast">
+                      <div class="cast__img">
+                        <img src="./src/assets/img/cast3.jpg" alt="cast1">
+                      </div>
+
+                      <div class="cast__name">
+                        <p>David Thewlis</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+
+
+              </li>
+            </ul>
+
+            <div class="overview">
+              <h1>Nội dung phim</h1>
+
+              <p>
+                <b>Mèo béo siêu đẳng</b>
+                The Amazing Maurice 2022 Maurice là một chú mèo lanh lợi trên đường phố,
+                người nghĩ ra một
+                trò lừa đảo kiếm tiền bằng cách kết bạn với một nhóm chuột biết nói. Khi Maurice và những loài gặm nhấm
+                đến thị trấn Bad
+                Blintz bị ảnh hưởng, họ gặp một con mọt sách tên là Malicia và trò lừa bịp nhỏ của họ chẳng mấy chốc đã
+                đổ bể.
+              </p>
+            </div>
+
+            <div class="section__movie-list">
+              <div class="movie-category">
+                <h1>Phim tương tự</h1>
+                <a class="view-all">
+                  Xem tất cả
+                  <i class="fa-solid fa-angles-right"></i>
+                </a>
+              </div>
+              <div class="movie__container">
+                <div id="nominated-slide" class="owl-carousel owl-theme">
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
+                        <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
+                        <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="card__movie">
+                      <a href="#">
+                        <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
+                        <p class="movie-title">movie name</p>
+                        <div class="icon-play">
+                          <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="bookmark-rate">
+                          <div class="rate">
+                            <i class="rate-icon fa-solid fa-star"></i>
+                            8.4
+                          </div>
+                          <div class="bookmark">
+                            <i class="un-bookmark fa-regular fa-bookmark"></i>
+                            <i class="active-bookmark fa-solid fa-bookmark"></i>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class=" footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-title">
+              <a href="#">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
+            </div>
+          </div>
+        </div>
+        <ul class="row">
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Câu hỏi thường gặp</a>
+          </li>
+
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Trung tâm trợ giúp</a>
+          </li>
+
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Tài khoản</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Trung tâm đa phương tiện</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Quan hệ với nhà đầu tư</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Việc làm</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Các cách xem</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Điều khoản sử dụng</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Quyền riêng tư</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Tùy chọn cookie</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Thông tin doanh nghiệp</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Liên hệ với chúng tôi</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Kiểm tra tốc độ</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Thông báo pháp lý</a>
+          </li>
+          <li class="col-6 col-sm-4 col-md-3">
+            <a href="#">Chỉ có trên TheMovies</a>
+          </li>
+        </ul>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="design-by">
+              Design by HuanPT
+            </div>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+  <script src="./src/lib/jquery-3.6.1.min.js"></script>
+  <script src="./src/lib/Owlcarousel2/owl.carousel.min.js"></script>
+  <script src="./src/assets/js/customCarousel.js"></script>
+  <script type="module" src="./src/assets/js/movie.js"></script>
+</body>
+
+</html>
