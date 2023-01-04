@@ -87,6 +87,10 @@
         top: -8rem
     }
 
+    .card-bgr .section__card-text-title {
+        text-align: center;
+    }
+
     .section__card-text .section__card-text-title {
         font-size: 5rem;
     }
