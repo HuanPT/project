@@ -8,6 +8,8 @@
     --orange-color: #ffa00a;
     --blue-color: #0071eb;
     --text-gray: #737373;
+
+    --bs-dark-rgb: #222;
 }
 
 html {
@@ -186,7 +188,8 @@ a.btn-red {
 }
 
 .header__top-logo img {
-    height: 4rem
+    height: 4rem;
+    min-width: 11rem;
 }
 
 .header__login a {
@@ -250,6 +253,7 @@ a.btn-red {
     width: 100%;
     min-width: 150px;
     max-width: 320px;
+    margin-left: 2rem;
 }
 
 .header__center-menu {

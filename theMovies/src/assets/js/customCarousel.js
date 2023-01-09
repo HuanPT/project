@@ -25,17 +25,13 @@ $(document).ready(function () {
         items: 2,
         slideBy: 2,
       },
-      600: {
+      768: {
         items: 3,
         slideBy: 3,
       },
-      800: {
+      1100: {
         items: 4,
         slideBy: 4,
-      },
-      1100: {
-        items: 5,
-        slideBy: 5,
       },
     },
   });
@@ -66,17 +62,13 @@ $(document).ready(function () {
         items: 2,
         slideBy: 2,
       },
-      600: {
+      768: {
         items: 3,
         slideBy: 3,
       },
-      800: {
+      1100: {
         items: 4,
         slideBy: 4,
-      },
-      1100: {
-        items: 5,
-        slideBy: 5,
       },
     },
   });

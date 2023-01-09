@@ -1,5 +1,5 @@
-import "../css/index.css";
-import "../css/responsiveIndex.css";
+import "@assets/css/index.css";
+import "@assets/css/responsiveIndex.css";
 
 import "@fortawesome/fontawesome-free/js/all.min.js";
 

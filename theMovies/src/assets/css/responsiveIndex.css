@@ -31,6 +31,18 @@
 }
 
 @media screen and (min-width: 768px) {
+    .header__top-wrap {
+        margin: 0 1rem;
+    }
+
+    .section__card-text .section__card-text-title {
+        margin: 0
+    }
+
+    .card-bgr .section__card-text-title {
+        text-align: center;
+        margin: 0 auto;
+    }
 
     .section__card {
         padding: 7rem 4.5rem;
@@ -74,6 +86,64 @@
     .section__faq-list li {
         width: 75%;
     }
+
+
+    /* Home Responsive */
+    .section__movie-list {
+        padding: 3rem 2rem;
+    }
+
+    .card__movie-big .movie-title {
+        font-size: 2rem;
+        padding: 1rem;
+
+    }
+
+    .card__movie-big .bookmark-rate {
+        padding: 1rem;
+    }
+
+    .card__movie-big .rate {
+        font-size: 1.8rem;
+    }
+
+    .card__movie-big .bookmark {
+        font-size: 2.2rem;
+    }
+
+    .card__movie-big .rate-icon {
+        font-size: 2.2rem;
+    }
+
+
+    .owl-prev {
+        right: calc(100% - 2rem);
+    }
+
+    .owl-next {
+        left: calc(100% - 2rem);
+    }
+
+    .movie-title {
+        font-size: 2rem;
+    }
+
+
+    /* Search HTML */
+    .list__film {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .person__details .list__film {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Person Responsive */
+    .person__info {
+        max-width: 30rem;
+        margin: 0 auto;
+    }
 }
 
 
@@ -83,12 +153,16 @@
         height: 6rem;
     }
 
-    .section__card-bgr {
-        top: -8rem
+    .header__top-wrap {
+        margin: 0 5vw;
     }
 
-    .card-bgr .section__card-text-title {
-        text-align: center;
+    .header__nav-wrap {
+        top: 4rem;
+    }
+
+    .section__card-bgr {
+        top: -8rem
     }
 
     .section__card-text .section__card-text-title {
@@ -118,5 +192,26 @@
         height: 4.8rem;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+    }
+
+    .login__input-group .label__input .input-tag {
+        border-radius: 0.5rem;
+    }
+
+    /* Movie Responsive */
+    .film__info-img .icon-play {
+        opacity: .8;
+        top: 50%;
+        left: 50%;
+    }
+
+    /* Search Responsive */
+    .list__film {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* Person Responsive */
+    .person__details .list__film {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
