@@ -1,5 +1,5 @@
 @import url("bootstrap/dist/css/bootstrap.min.css");
-@import url("common.css");
+@import url("home.css");
 @import url("responsiveIndex.css");
 
 .film__info {
@@ -185,6 +185,10 @@
     transition: all .2s;
 }
 
+.movie__container dl {
+    margin-inline: 1rem;
+}
+
 .movie__container dt:not(:first-child) {
     margin-top: 1rem;
 }
@@ -356,6 +360,16 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     display: -webkit-box;
+}
+
+.btn__changePassword {
+    color: var(--gray-color);
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.btn__changePassword:hover {
+    color: var(--orange-color);
 }
 
 .tab-content .btn.btn-remove {
