@@ -1,6 +1,5 @@
 import "@lib/jquery-3.6.1.min.js";
 import * as customCarousel from "./customCarousel.js";
-import "@assets/img";
 import "@assets/css/index.css";
 import "@assets/css/home.css";
 import "@assets/css/responsiveIndex.css";
