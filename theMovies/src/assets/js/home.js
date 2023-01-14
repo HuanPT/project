@@ -1,14 +1,11 @@
-import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
-import "@lib/Owlcarousel2/assets/owl.theme.default.min.css";
+import "@lib/jquery-3.6.1.min.js";
+import * as customCarousel from "./customCarousel.js";
+
 import "@assets/css/index.css";
 import "@assets/css/home.css";
 import "@assets/css/responsiveIndex.css";
 
-import "@lib/jquery-3.6.1.min.js";
-import "@lib/Owlcarousel2/owl.carousel.min.js";
-
 import * as api from "./api.js";
-import * as customCarousel from "./customCarousel.js";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -164,28 +161,28 @@ const makeHeader = () => {
                 <div class="triangle"></div>
                 <ul class="nav-user-menu">
                   <li>
-                    <a class="user-menu-item" href="#"><i class="fa-solid fa-circle-info"></i>
+                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-circle-info"></i>
                       Tài khoản
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="user-menu-item">
+                    <a href="/account.html" class="user-menu-item">
                       <i class="fa-solid fa-heart"></i>
                       Phim yêu thích
                     </a>
                   </li>
                   <li>
-                    <a class="user-menu-item" href="#"><i class="fa-solid fa-bookmark"></i>
+                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-bookmark"></i>
                       Phim đã lưu
                     </a>
                   </li>
                   <li>
-                    <a class="user-menu-item" href="#"><i class="fa-solid fa-clock-rotate-left"></i>
+                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-clock-rotate-left"></i>
                       Lịch sử xem
                     </a>
                   </li>
                   <li>
-                    <a class="user-menu-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>
+                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-right-from-bracket"></i>
                       Đăng xuất
                     </a>
                   </li>
@@ -209,11 +206,12 @@ fetch(
   .then((res) => res.json())
   .then((data) => {
     data.genres.forEach((item, i) => {
+      console.log(item, i);
       if (i < 10) {
         if (i % 2 == 0) {
           fetchMoviesListByGenres(item.id, item.name);
         } else {
-          // fetchMoviesListByCardBig(item.id, item.name);
+          fetchMoviesListByCardBig(item.id, item.name);
         }
       }
     });
@@ -232,9 +230,7 @@ const fetchMoviesListByGenres = (id, genres) => {
     .then((res) => res.json())
     .then((data) => {
       makeCategoryElementSlide(genres, data.results);
-    })
-    .then((res) => {
-      customCarousel.carousel();
+      customCarousel.carousel(data);
     })
     .catch((err) => console.log("err"));
 };
@@ -245,7 +241,7 @@ const makeCategoryElementSlide = (category, data) => {
       <div class="section__movie-list">
         <div class="movie-category">
           <h1>${category}</h1>
-          <a href="/search?q=${category}" class="view-all">
+          <a href="/search.html?q=${category}" class="view-all">
             Xem tất cả
             <i class="fa-solid fa-angles-right"></i>
           </a>
@@ -291,7 +287,7 @@ const fetchMoviesListByCardBig = (id, genres) => {
       new URLSearchParams({
         api_key: api.api_key,
         with_genres: id,
-        page: 1,
+        page: Math.floor(Math.random() * 3) + 1,
       }) +
       api.language
   )
@@ -308,7 +304,7 @@ const makeCategoryElementBig = (category, data) => {
       <div class="section__movie-list">
         <div class="movie-category">
           <h1>${category}</h1>
-          <a href="/search?q=${category}" class="view-all">
+          <a href="/search.html?q=${category}" class="view-all">
             Xem tất cả
             <i class="fa-solid fa-angles-right"></i>
           </a>
@@ -332,8 +328,8 @@ const makeCardsBig = (id, data) => {
   const colMd7 = document.createElement("div");
   colMd7.classList.add("col-md-7");
   const rowG2 = document.createElement("div");
-  rowG2.classList.add("row", "gy-2")
-  colMd7.appendChild(rowG2)
+  rowG2.classList.add("row", "gy-2");
+  colMd7.appendChild(rowG2);
 
   movieContainer.append(colMd5, colMd7);
 
@@ -350,7 +346,7 @@ const makeCardsBig = (id, data) => {
         colMd5.innerHTML += `
           <div class="card__movie card__movie-big">
           <a href="/movie.html?${item.id}">
-            <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
+            <img src="${api.imgOriginalUrl}${item.backdrop_path}" alt="${item.title}">
             <p class="movie-title">${item.title}</p>
             <div class="icon-play">
               <i class="fa-solid fa-play"></i>
@@ -359,7 +355,7 @@ const makeCardsBig = (id, data) => {
         </div>
         `;
       }
-      if (i > 0 && i < 7){
+      if (i > 0 && i < 7) {
         rowG2.innerHTML += `
           <div class="col-6 col-md-4">
             <div class="card__movie">
@@ -374,7 +370,7 @@ const makeCardsBig = (id, data) => {
           </div>
         `;
       }
-      if( i > 6 && i <= 10) {
+      if (i > 6 && i <= 10) {
         movieContainer.innerHTML += `
           <div class="col-6 col-md-3">
             <div class="card__movie">
