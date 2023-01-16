@@ -2,7 +2,6 @@ import "@assets/css/index.css";
 import "@assets/css/movie.css";
 import "@assets/css/person.css";
 import "@assets/css/search.css";
-import "@assets/css/responsiveIndex.css";
 
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
@@ -10,6 +9,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import * as api from "./api.js";
 import { navSearchDesktop, navSearchMobile } from "./common";
+import "@assets/css/responsiveIndex.css";
 
 let keyword = location.search.replace("?q=", "");
 
