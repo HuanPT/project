@@ -35,3 +35,5 @@ export let language = "&language=vi-VN";
 export let trendingDay = "https://api.themoviedb.org/3/trending/movie/day?";
 
 export let trendingWeek = "https://api.themoviedb.org/3/trending/movie/week?";
+
+export let searchMovie = "https://api.themoviedb.org/3/search/movie?";

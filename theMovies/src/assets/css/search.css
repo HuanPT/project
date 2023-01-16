@@ -40,7 +40,7 @@
 }
 
 .pagination {
-    --bs-pagination-color:var(--orange-color);
+    --bs-pagination-color: var(--orange-color);
     --bs-pagination-active-color: var(--black-color);
     --bs-pagination-active-bg: var(--orange-color);
     --bs-pagination-hover-bg: var(--orange-color);
@@ -53,4 +53,9 @@
 .page-link {
     color: var(--black-color);
     border: none;
+}
+
+.search__title {
+    color: var(--orange-color);
+    margin-inline: 2rem;
 }

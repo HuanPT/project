@@ -20,8 +20,7 @@
         <div class="container">
             <div class="row">
 
-                <!-- header Mobile -->
-                <div class="col-12 d-md-none">
+                <div class="col-12 d-md-none heade__Mobile">
                     <div class="header__top-wrap">
                         <div class="header__search">
 
@@ -31,10 +30,8 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-                                    <!-- <input type="text" placeholder="Tìm kiếm..."> -->
                                     <label class="input-tag">
-                                        <input type="text">
+                                        <input type="text" id="search__mobile">
                                         <span class="place">
                                             Tìm kiếm
                                         </span>
@@ -46,7 +43,7 @@
 
 
                         <div class="header__top-logo">
-                            <a href="/"><img src="./assets/img/paner.png" alt="logo"></a>
+                            <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
                         </div>
 
                         <div class="header__navbars">
@@ -68,25 +65,25 @@
                                     <div class="navbars__mobile-main">
                                         <ul class="navbars__mobile-list">
                                             <li>
-                                                <a href="#" class="user-menu-item">
+                                                <a href="./account.html" class="user-menu-item">
                                                     <i class="fa-solid fa-circle-info"></i>
                                                     Tài khoản
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
+                                                <a href="./account.html" class="user-menu-item">
                                                     <i class="fa-solid fa-heart"></i>
                                                     Phim yêu thích
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
+                                                <a href="./account.html" class="user-menu-item">
                                                     <i class="fa-solid fa-bookmark"></i>
                                                     Phim đã lưu
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
+                                                <a href="./account.html" class="user-menu-item">
                                                     <i class="fa-solid fa-clock-rotate-left"></i>
                                                     Lịch sử xem</a>
                                             </li>
@@ -124,13 +121,10 @@
                     </div>
                 </div>
 
-                <!-- Header desktop -->
-                <div class="col-12 d-none d-md-block">
+                <div class="col-12 d-none d-md-block header__desktop">
                     <div class="header__top-wrap">
-
-
                         <div class="header__top-logo">
-                            <a href="/"><img src="./assets/img/paner.png" alt="logo"></a>
+                            <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
                         </div>
 
                         <div class="header__center d-flex">
@@ -151,7 +145,7 @@
 
                             <div class="header__center-search">
                                 <label class="input-tag">
-                                    <input type="text">
+                                    <input type="text" id="search__desktop">
                                     <span class="place">
                                         Tìm kiếm
                                     </span>
@@ -166,23 +160,26 @@
                                 <div class="triangle"></div>
                                 <ul class="nav-user-menu">
                                     <li>
-                                        <a class="user-menu-item" href="#"><i class="fa-solid fa-circle-info"></i>
+                                        <a class="user-menu-item" href="./account.html"><i
+                                                class="fa-solid fa-circle-info"></i>
                                             Tài khoản
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="user-menu-item">
+                                        <a href="./account.html" class="user-menu-item">
                                             <i class="fa-solid fa-heart"></i>
                                             Phim yêu thích
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="user-menu-item" href="#"><i class="fa-solid fa-bookmark"></i>
+                                        <a class="user-menu-item" href="./account.html"><i
+                                                class="fa-solid fa-bookmark"></i>
                                             Phim đã lưu
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="user-menu-item" href="#"><i class="fa-solid fa-clock-rotate-left"></i>
+                                        <a class="user-menu-item" href="./account.html"><i
+                                                class="fa-solid fa-clock-rotate-left"></i>
                                             Lịch sử xem
                                         </a>
                                     </li>
@@ -245,8 +242,10 @@
                 </div>
             </nav>
 
+            <h1 class="search__title">Từ khóa tìm kiếm: <span class="search__keyword"></span></h1>
+
             <ul class="list__film mt-5">
-                <li class="card__movie">
+                <!-- <li class="card__movie">
                     <a href="#" class="d-block d-md-none">
                         <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg"
                             alt="">
@@ -262,130 +261,7 @@
                             <i class="fa-solid fa-play"></i>
                         </div>
                     </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://image.tmdb.org/t/p/w220_and_h330_face/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://image.tmdb.org/t/p/w220_and_h330_face/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://image.tmdb.org/t/p/w220_and_h330_face/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
-                <li class="card__movie">
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://www.themoviedb.org/t/p/w533_and_h300_bestv2/dKjjVuPawiREBYjREb3U5SCtfrt.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li>
+                </li> -->
             </ul>
 
             <!-- Search pagination -->

@@ -15,7 +15,9 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import * as api from "./api.js";
 import * as customCarousel from "./customCarousel.js";
- 
+
+import { navSearchDesktop, navSearchMobile } from "./common.js";
+
 let movieId = location.search.replace("?", "");
 // console.log(movieId);
 
@@ -59,8 +61,8 @@ const createImgSmall = (data) => {
 const createImgBig = (data) => {
   const filmImgBig = document.querySelector(".img__big");
   const imgBig = document.createElement("img");
-
-  imgBig.src = `${api.imgOriginalUrl}${data.backdrop_path}`;
+  let img = data.backdrop_path == null ? data.poster_path : data.backdrop_path;
+  imgBig.src = `${api.imgOriginalUrl}${img}`;
   imgBig.alt = `${data.title}`;
 
   filmImgBig.append(imgBig);
@@ -315,3 +317,8 @@ fetch(
     container.append(slide);
     customCarousel.carousel(data);
   });
+
+window.onload = () => {
+  navSearchDesktop();
+  navSearchMobile();
+};

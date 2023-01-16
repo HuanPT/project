@@ -6,8 +6,9 @@ import "@assets/css/responsiveIndex.css";
 
 import * as api from "./api.js";
 import "@fortawesome/fontawesome-free/js/all.min.js";
-
+// import "@assets/js/search.js";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { navSearchDesktop, navSearchMobile } from "./common";
 
 const header = document.querySelector("header");
 const main = document.querySelector(".main");
@@ -29,13 +30,14 @@ const makeHeader = () => {
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <label class="input-tag">
-                    <input type="text">
-                    <span class="place">
-                      Tìm kiếm
-                    </span>
-                  </label>
-
+                  <form class="search__form">
+                      <label class="input-tag">
+                          <input type="text" id="search__mobile">
+                          <span class="place">
+                              Tìm kiếm
+                          </span>
+                      </label>
+                  </form>
                 </div>
               </div>
             </div>
@@ -144,12 +146,14 @@ const makeHeader = () => {
               </ul>
 
               <div class="header__center-search">
-                <label class="input-tag">
-                  <input type="text">
-                  <span class="place">
-                    Tìm kiếm
-                  </span>
-                </label>
+                <form class="search__form">
+                    <label class="input-tag">
+                        <input type="text" id="search__desktop">
+                        <span class="place">
+                            Tìm kiếm
+                        </span>
+                    </label>
+                </form>
               </div>
             </div>
 
@@ -205,7 +209,7 @@ fetch(
   .then((res) => res.json())
   .then((data) => {
     data.genres.forEach((item, i) => {
-      console.log(item, i);
+      // console.log(item, i);
       if (i < 10) {
         if (i % 2 == 0) {
           fetchMoviesListByGenres(item.id, item.name);
@@ -332,7 +336,7 @@ const makeCardsBig = (id, data) => {
 
   movieContainer.append(colMd5, colMd7);
 
-  console.log(data);
+  // console.log(data);
   data.forEach((item, i) => {
     if (item.backdrop_path == null) {
       item.backdrop_path = item.poster_path;
@@ -389,5 +393,7 @@ const makeCardsBig = (id, data) => {
 };
 
 window.onload = () => {
-  makeHeader();
+  // makeHeader();
+  navSearchMobile();
+  navSearchDesktop();
 };
