@@ -1,17 +1,12 @@
-import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
-import "@lib/Owlcarousel2/assets/owl.theme.default.min.css";
 import "@assets/css/index.css";
 import "@assets/css/movie.css";
 import "@assets/css/person.css";
 import "@assets/css/search.css";
-
-import "@lib/jquery-3.6.1.min.js";
-import "@lib/Owlcarousel2/owl.carousel.min.js";
+import "@assets/css/responsiveIndex.css";
 
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
-import "@assets/css/responsiveIndex.css";
 
 import * as api from "./api.js";
 import { navSearchDesktop, navSearchMobile } from "./common";
