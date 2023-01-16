@@ -18,6 +18,10 @@
     border-radius: .5rem;
 }
 
+.filter__item select option {
+    width: 100%;
+}
+
 .filter__item select option:hover {
     background-color: var(--gray-color);
     color: var(--orange-color);
