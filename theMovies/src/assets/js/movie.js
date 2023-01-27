@@ -16,7 +16,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import * as api from "./api.js";
 import * as customCarousel from "./customCarousel.js";
 
-import { navSearchDesktop, navSearchMobile } from "./common.js";
+import { navSearchDesktop, navSearchMobile, navMobile } from "./common.js";
 
 let movieId = location.search.replace("?", "");
 // console.log(movieId);
@@ -37,6 +37,8 @@ fetch(
     // console.log(data);
     setupMovieInfo(data);
     customCarousel.carousel();
+    favorite();
+    bookmark();
   })
   .catch((err) => console.log("err"));
 
@@ -87,12 +89,12 @@ const movieName = (data) => {
                       </a>
                     </li>
                     <li>
-                      <div class="addTo__account favourite">
+                      <div class="addTo__account favorite">
                         <div class="addTo__account-wrap">
-                          <span class="remove__favourite">
+                          <span class="remove__favorite">
                             <i class="fa-regular fa-heart"></i>
                           </span>
-                          <span class="add__favourite d-none">
+                          <span class="add__favorite d-none">
                             <i class="fa-solid fa-heart"></i>
                           </span>
                         </div>
@@ -105,10 +107,10 @@ const movieName = (data) => {
                     <li>
                       <div class="addTo__account bookmark">
                         <div class="addTo__account-wrap">
-                          <span class="remove__bookmark d-none">
+                          <span class="remove__bookmark">
                             <i class="fa-regular fa-bookmark"></i>
                           </span>
-                          <span class="add__bookmark">
+                          <span class="add__bookmark d-none">
                             <i class="fa-solid fa-bookmark"></i>
                           </span>
                         </div>
@@ -318,7 +320,29 @@ fetch(
     customCarousel.carousel(data);
   });
 
+const favorite = () => {
+  const favorite = document.querySelector(".favorite");
+  const removeFavorite = favorite.querySelector(".remove__favorite");
+  const addFavorite = favorite.querySelector(".add__favorite");
+  favorite.addEventListener("click", () => {
+    removeFavorite.classList.toggle("d-none");
+    addFavorite.classList.toggle("d-none");
+  });
+};
+
+const bookmark = () => {
+  const bookmark = document.querySelector(".bookmark");
+  const removeBookmark = bookmark.querySelector(".remove__bookmark");
+  const addBookmark = bookmark.querySelector(".add__bookmark");
+  bookmark.addEventListener("click", () => {
+    console.log(removeBookmark, addBookmark);
+    removeBookmark.classList.toggle("d-none");
+    addBookmark.classList.toggle("d-none");
+  });
+};
+
 window.onload = () => {
   navSearchDesktop();
   navSearchMobile();
+  navMobile();
 };

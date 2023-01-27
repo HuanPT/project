@@ -8,8 +8,7 @@ import * as api from "./api.js";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 // import "@assets/js/search.js";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { navSearchDesktop, navSearchMobile } from "./common";
-
+import { navSearchDesktop, navSearchMobile, navMobile } from "./common";
 const header = document.querySelector("header");
 const main = document.querySelector(".main");
 const mainContainer = main.querySelector(".container");
@@ -208,13 +207,16 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
+    console.log(data.genres);
     data.genres.forEach((item, i) => {
       // console.log(item, i);
-      if (i < 10) {
-        if (i % 2 == 0) {
-          fetchMoviesListByGenres(item.id, item.name);
-        } else {
-          fetchMoviesListByCardBig(item.id, item.name);
+      if (i < 11) {
+        if (i !== 5) {
+          if (i % 2 == 0) {
+            fetchMoviesListByGenres(item.id, item.name);
+          } else {
+            fetchMoviesListByCardBig(item.id, item.name);
+          }
         }
       }
     });
@@ -271,7 +273,7 @@ const makeCardsSlide = (id, data) => {
     movieContainer.innerHTML += `
       <div class="item">
         <div class="card__movie">
-          <a href="/movie.html?${item.id}">
+          <a href="/movie.html?${item.id}" title="${item.title}">
             <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
             <p class="movie-title">${item.title}</p>
             <div class="icon-play">
@@ -348,7 +350,7 @@ const makeCardsBig = (id, data) => {
       if (i == 0) {
         colMd5.innerHTML += `
           <div class="card__movie card__movie-big">
-          <a href="/movie.html?${item.id}">
+          <a href="/movie.html?${item.id}" title="${item.title}">
             <img src="${api.imgOriginalUrl}${item.backdrop_path}" alt="${item.title}">
             <p class="movie-title">${item.title}</p>
             <div class="icon-play">
@@ -362,7 +364,7 @@ const makeCardsBig = (id, data) => {
         rowG2.innerHTML += `
           <div class="col-6 col-md-4">
             <div class="card__movie">
-              <a href="/movie.html?${item.id}">
+              <a href="/movie.html?${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
@@ -377,7 +379,7 @@ const makeCardsBig = (id, data) => {
         movieContainer.innerHTML += `
           <div class="col-6 col-md-3">
             <div class="card__movie">
-              <a href="/movie.html?${item.id}">
+              <a href="/movie.html?${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
@@ -396,4 +398,5 @@ window.onload = () => {
   // makeHeader();
   navSearchMobile();
   navSearchDesktop();
+  navMobile();
 };

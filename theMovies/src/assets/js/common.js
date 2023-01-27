@@ -21,3 +21,15 @@ export const navSearchMobile = () => {
     }
   });
 };
+
+export const navMobile = () => {
+  const btnNav = document.querySelector(".btn__navbars");
+  const nav = document.querySelector(".navbars__mobile-detail");
+  const overlay = nav.querySelector(".overlay");
+  btnNav.addEventListener("click", () => {
+    nav.classList.toggle("hidden");
+  });
+  overlay.addEventListener("click", () => {
+    nav.classList.toggle("hidden");
+  });
+};

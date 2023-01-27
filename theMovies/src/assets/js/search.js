@@ -11,7 +11,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import * as api from "./api.js";
 import { navSearchDesktop, navSearchMobile } from "./common";
 
-let keyword = location.search.replace("?q=", "");
+let keyword = decodeURI(location.search.replace("?q=", ""));
 
 let page = 1;
 fetch(
@@ -34,6 +34,10 @@ fetch(
 const renderListSearch = (data) => {
   const list = document.querySelector(".list__film");
   const items = data.results;
+  if (items == 0) {
+    const title = document.querySelector(".search__title");
+    title.innerHTML = `Không có kết quả cho từ khóa: <span class="search__keyword"></span>`;
+  }
   items.forEach((item, i) => {
     if (item.backdrop_path == null) {
       item.backdrop_path = item.poster_path;
@@ -43,7 +47,7 @@ const renderListSearch = (data) => {
     }
     list.innerHTML += `
         <li class="card__movie">
-            <a href="./movie.html?${item.id}" class="d-block d-md-none">
+            <a href="./movie.html?${item.id}" class="d-block d-md-none" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}"
                     alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
@@ -51,8 +55,8 @@ const renderListSearch = (data) => {
                     <i class="fa-solid fa-play"></i>
                 </div>
             </a>
-            <a href="./movie.html?${item.id}" class="d-none d-md-block">
-                <img src="${api.imgUrlW220}${item.poster_path}" alt="">
+            <a href="./movie.html?${item.id}" class="d-none d-md-block" title="${item.title}">
+                <img src="${api.imgUrlW220}${item.poster_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
                     <i class="fa-solid fa-play"></i>
@@ -159,8 +163,8 @@ const filterYear = () => {
   }
 };
 
-
-
 window.onload = () => {
   filterYear();
+  navSearchDesktop();
+  navSearchMobile();
 };

@@ -31,7 +31,7 @@ export let person = "https://api.themoviedb.org/3/person/";
 // Get link img
 export let imgOriginalUrl = "https://image.tmdb.org/t/p/original";
 
-export let searchUrl = "https://api.themoviedb.org/3/search/movie?";
+export let searchUrl = "https://api.themoviedb.org/3/search/multi?";
 
 export let language = "&language=vi-VN";
 

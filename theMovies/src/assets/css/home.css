@@ -105,15 +105,22 @@ a.btn-red {
 .navbars__mobile-detail {
     position: fixed;
     inset: 0;
-    display: none;
     z-index: 11;
-    transition: all .2s;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+}
+
+.hidden {
+    opacity: 0;
+    right: -35%;
+    visibility: hidden;
 }
 
 .overlay {
     width: 100%;
     height: 100%;
-    transition: all .2s;
+    transition: all .3s;
+    -webkit-transition: all .3s;
     background-color: rgba(255, 255, 255, 0.5);
 }
 

@@ -2,8 +2,8 @@ import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
 import "@lib/Owlcarousel2/assets/owl.theme.default.min.css";
 import "@assets/css/index.css";
 import "@assets/css/movie.css";
-import "@assets/css/search.css";
 import "@assets/css/person.css";
+import "@assets/css/search.css";
 import "@assets/css/responsiveIndex.css";
 
 import "@lib/jquery-3.6.1.min.js";
