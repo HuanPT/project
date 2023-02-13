@@ -41,10 +41,13 @@ export function backToTop() {
   });
 }
 
-export const loading = () => {
-  setTimeout(() => {
-    document.querySelector(".loading").style.display = "none";
-  }, 1000);
+export const loading = (s) => {
+  setTimeout(
+    () => {
+      document.querySelector(".loading").style.display = "none";
+    },
+    s ? s * 1000 : 1000
+  );
 };
 
 export function headerOnTop() {
