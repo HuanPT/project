@@ -16,13 +16,75 @@
 </head>
 
 <body>
-  <div class="login d-none">
-    <div class="overlay">
+  <div id="toast">
+  </div>
+  <div class="loading">
+    <div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c4"></div>
     </div>
+  </div>
+  <div class="form register d-none">
+    <div class="overlay"></div>
     <div class="form__wrapper">
-      <div class="login__list">
+      <div class="form__section">
+        <form class="register__form form__item">
+          <h1>Đăng ký</h1>
+          <div class="login__input-group">
+            <label class="label__input">
+              <input id="full__name" type="text" name="fullName" class="input-tag">
+              <span class="place">
+                Họ và tên
+              </span>
+            </label>
+          </div>
+          <div class="email__group login__input-group">
+            <label class="label__input">
+              <input id="create__email" type="email" name="email" class="input-tag email__login">
+              <span class="place">
+                Địa chỉ email
+              </span>
+            </label>
+            <span class="input-error">Email chưa chính xác</span>
+          </div>
+          <div class="password__group  login__input-group">
+            <div class="wrap__label has__password-toggle">
+              <label class="label__input">
+                <input id="create__password" type="password" name="password" class="input-tag password__login">
+                <span class="place">
+                  Mật khẩu
+                </span>
+              </label>
+              <button type="button" class="btn btn__password-toggle">Hiện</button>
+            </div>
+            <span class="input-error">chưa chính xác</span>
 
-        <form class="login__form d-none login__item">
+          </div>
+
+          <div class="form__btn register__btn">
+            <button type="submit" class="btn btn-red">Đăng ký</button>
+          </div>
+
+          <div class="you__had">
+            Bạn đã có tài khoản TheMovies? <a class="login__now">Đăng nhập ngay</a>.
+          </div>
+        </form>
+      </div>
+      <div class="close-btn">
+        <button class="btn btn-dark">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form login d-none">
+    <div class="overlay"></div>
+    <div class="form__wrapper">
+      <div class="form__list form__section">
+
+        <form class="login__form d-none form__item">
           <h1>Đăng nhập</h1>
           <div class="email__group login__input-group">
             <label class="label__input">
@@ -48,8 +110,8 @@
 
           </div>
 
-          <div class="login__btn">
-            <button type="button" class="btn btn-red">Đăng nhập</button>
+          <div class="form__btn login__btn">
+            <button type="submit" class="btn btn-red">Đăng nhập</button>
           </div>
           <div class="login__form-help">
             <div class="login__remember">
@@ -60,15 +122,15 @@
                 </span>
               </label>
             </div>
-            <a href="#" class="help-link">Bạn cần trợ giúp?</a>
+            <a class="help-link">Bạn quên mật khẩu?</a>
           </div>
 
-          <div class="register__now">
-            Bạn mới tham gia TheMovies? <a href="/">Đăng ký ngay.</a>
+          <div class="you__had">
+            Bạn mới tham gia TheMovies? <a class="register__now">Đăng ký ngay.</a>
           </div>
         </form>
 
-        <form class="forget__form d-none login__item">
+        <form class="forget__form d-none form__item">
           <h1>Bạn quên mật khẩu?</h1>
           <h3>Chúng tôi sẽ gửi email kèm theo hướng dẫn đặt lại mật khẩu.</h3>
 
@@ -83,12 +145,12 @@
             <span class="input-error"></span>
           </div>
 
-          <div class="login__btn login__btn-send">
+          <div class="form__btn form__btn-send">
             <button type="button" class="btn btn-red">Gửi email cho tôi</button>
           </div>
         </form>
 
-        <form class="confirm__form d-none login__item">
+        <form class="confirm__form d-none form__item">
           <h1>Nhập mã xác minh.</h1>
           <div class="login__input-group">
             <label class="label__input" for="code__confirm">
@@ -100,12 +162,12 @@
             </label>
           </div>
 
-          <div class="login__btn login__btn-confirm">
+          <div class="form__btn form__btn-confirm">
             <button type="button" class="btn btn-red">Xác nhận</button>
           </div>
         </form>
 
-        <form class="createPassword__form d-none login__item">
+        <form class="createPassword__form d-none form__item">
           <h1>Tạo mới mật khẩu.</h1>
           <div class="password__group  login__input-group">
             <div class="wrap__label has__password-toggle">
@@ -134,19 +196,19 @@
             </div>
             <span class="input-error">Email chưa chính xác</span>
           </div>
-          <div class="login__btn login__btn-save">
+          <div class="form__btn form__btn-save">
             <button type="button" class="btn btn-red">Lưu</button>
           </div>
         </form>
 
-        <div class="successPassword__form d-none login__item">
+        <div class="successPassword__form d-none form__item">
           <h1>Tạo mật khẩu thành công.</h1>
 
           <div class="success__img">
             <i class="fa-solid fa-check"></i>
           </div>
 
-          <div class="login__btn login__btn-success">
+          <div class="form__btn form__btn-success">
             <button type="button" class="btn btn-red">Đăng nhập</button>
           </div>
         </div>
@@ -166,6 +228,7 @@
           <div class="header__top-logo">
             <a href="home.html"><img src="./assets/img/paner.png" alt="logo"></a>
           </div>
+
           <div class="header__login">
             <button type="button" class="btn btn-red">Đăng nhập</button>
           </div>
@@ -195,7 +258,7 @@
               Xem ở mọi nơi. Hủy bất kỳ lúc nào.
             </h2>
 
-            <form action="#" class="email__form">
+            <form class="email__form">
               <h3 class="email__form-title">
                 Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư cách thành viên của bạn.
               </h3>
@@ -209,7 +272,6 @@
                     </span>
                   </label>
                   <div class="input-error">
-                    Email chưa chính xác!
                   </div>
                 </div>
                 <button type="button" class="btn btn-red">
@@ -224,7 +286,7 @@
     </div>
 
     <!-- Card Tv -->
-    <div class="section__card card-on-tv">
+    <div class="section__card card__on-tv">
       <div class="section__card-wrap">
         <div class="container">
           <div class="row">
@@ -296,7 +358,7 @@
     </div>
 
     <!-- Card Device -->
-    <div class="section__card">
+    <div class="section__card card__device">
       <div class="section__card-wrap">
         <div class="container">
           <div class="row">
@@ -313,7 +375,14 @@
             </div>
 
             <div class="col-12 col-md-6">
-
+              <div class="section__card-img">
+                <div class="section__card-img-animation">
+                  <img src="./assets/img/device.png" alt="tv">
+                  <div class="card__animation">
+                    <video src="./assets/img/video-devices-vn.m4v" autoplay muted loop></video>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -363,8 +432,8 @@
                   toán!
                 </h2>
 
-                <div class="btn btn-down-app">
-                  <a href="#">
+                <div class="btn btn-red btn__down-app">
+                  <a class="not__link">
                     Tải ứng dụng
                     <i class="fa-solid fa-chevron-right"></i>
                   </a>
@@ -514,7 +583,7 @@
                   </li>
                 </ul>
 
-                <form action="#" class="email__form">
+                <form class="email__form">
                   <h3 class="email__form-title">
                     Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư cách thành viên của bạn.
                   </h3>
@@ -528,7 +597,7 @@
                         </span>
                       </label>
                       <div class="input-error">
-                        Email chưa chính xác!
+
                       </div>
                     </div>
                     <button type="button" class="btn btn-red">
@@ -553,57 +622,57 @@
           <div class="row">
             <div class="col-12">
               <div class="footer-title">
-                <a href="#">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
+                <a class="not__link">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
               </div>
             </div>
           </div>
           <ul class="row">
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Câu hỏi thường gặp</a>
+              <a class="not__link">Câu hỏi thường gặp</a>
             </li>
 
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Trung tâm trợ giúp</a>
+              <a class="not__link">Trung tâm trợ giúp</a>
             </li>
 
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Tài khoản</a>
+              <a class="not__link">Tài khoản</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Trung tâm đa phương tiện</a>
+              <a class="not__link">Trung tâm đa phương tiện</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Quan hệ với nhà đầu tư</a>
+              <a class="not__link">Quan hệ với nhà đầu tư</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Việc làm</a>
+              <a class="not__link">Việc làm</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Các cách xem</a>
+              <a class="not__link">Các cách xem</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Điều khoản sử dụng</a>
+              <a class="not__link">Điều khoản sử dụng</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Quyền riêng tư</a>
+              <a class="not__link">Quyền riêng tư</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Tùy chọn cookie</a>
+              <a class="not__link">Tùy chọn cookie</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Thông tin doanh nghiệp</a>
+              <a class="not__link">Thông tin doanh nghiệp</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Liên hệ với chúng tôi</a>
+              <a class="not__link">Liên hệ với chúng tôi</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Kiểm tra tốc độ</a>
+              <a class="not__link">Kiểm tra tốc độ</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Thông báo pháp lý</a>
+              <a class="not__link">Thông báo pháp lý</a>
             </li>
             <li class="col-6 col-sm-4 col-md-3">
-              <a href="#">Chỉ có trên TheMovies</a>
+              <a class="not__link">Chỉ có trên TheMovies</a>
             </li>
           </ul>
 
@@ -619,9 +688,7 @@
     </div>
   </footer>
 
-
-
-  <script type="module" src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/index.js"></script>
 </body>
 
 </html>

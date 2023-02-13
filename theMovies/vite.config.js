@@ -24,6 +24,7 @@ export default defineConfig({
         account: path.resolve(__dirname, "src", "account.html"),
         person: path.resolve(__dirname, "src", "person.html"),
         search: path.resolve(__dirname, "src", "search.html"),
+        watch: path.resolve(__dirname, "src", "watch.html"),
       },
     },
   },

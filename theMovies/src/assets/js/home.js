@@ -1,291 +1,69 @@
-import "@lib/jquery-3.6.1.min.js";
-import * as customCarousel from "./customCarousel.js";
 import "@assets/css/index.css";
 import "@assets/css/home.css";
-import "@assets/css/responsiveIndex.css";
 
 import * as api from "./api.js";
 import "@fortawesome/fontawesome-free/js/all.min.js";
-// import "@assets/js/search.js";
+
 import "bootstrap/dist/js/bootstrap.min.js";
-import { navSearchDesktop, navSearchMobile, navMobile } from "./common";
-const header = document.querySelector("header");
+import * as customCarousel from "./customCarousel.js";
+
+import {
+  navSearchDesktop,
+  navSearchMobile,
+  navMobile,
+  headerOnTop,
+  loading,
+} from "./common";
+
 const main = document.querySelector(".main");
 const mainContainer = main.querySelector(".container");
 const mainRow = mainContainer.querySelector(".row");
 
-const makeHeader = () => {
-  header.innerHTML += `
-    <div class="container">
-      <div class="row">
+let genres = [
+  {
+    id: 28,
+    name: "Phim Hành Động",
+  },
+  {
+    id: 12,
+    name: "Phim Phiêu Lưu",
+  },
+  {
+    id: 16,
+    name: "Phim Hoạt Hình",
+  },
+  {
+    id: 35,
+    name: "Phim Hài",
+  },
+  {
+    id: 10751,
+    name: "Phim Gia Đình",
+  },
+  {
+    id: 14,
+    name: "Phim Giả Tượng",
+  },
+  {
+    id: 36,
+    name: "Phim Lịch Sử",
+  },
+  {
+    id: 27,
+    name: "Phim Kinh Dị",
+  },
+  {
+    id: 9648,
+    name: "Phim Bí Ẩn",
+  },
+  {
+    id: 878,
+    name: "Phim Khoa Học Viễn Tưởng",
+  },
+];
 
-        <div class="col-12 d-md-none heade__Mobile">
-          <div class="header__top-wrap">
-            <div class="header__search">
-
-              <div class="dropdown">
-                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <form class="search__form">
-                      <label class="input-tag">
-                          <input type="text" id="search__mobile">
-                          <span class="place">
-                              Tìm kiếm
-                          </span>
-                      </label>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="header__top-logo">
-              <a href="/"><img src="./assets/img/paner.png" alt="logo"></a>
-            </div>
-
-            <div class="header__navbars">
-              <div class="btn__navbars">
-                <i class="fa-solid fa-bars"></i>
-              </div>
-              <div class="navbars__mobile-detail">
-                <div class="overlay"></div>
-                <div class="navbars__mobile-wrap">
-                  <div class="navbars__mobile-header">
-                    <div class="mobile__user-name">
-                      <h3>Chào HuanPT!</h3>
-                      <div class="user__name-avatar">
-                        <i class="fa-solid fa-user"></i>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="navbars__mobile-main">
-                    <ul class="navbars__mobile-list">
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          <i class="fa-solid fa-circle-info"></i>
-                          Tài khoản
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          <i class="fa-solid fa-heart"></i>
-                          Phim yêu thích
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          <i class="fa-solid fa-bookmark"></i>
-                          Phim đã lưu
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          <i class="fa-solid fa-clock-rotate-left"></i>
-                          Lịch sử xem</a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                          Đăng xuất
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          Phim hot
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          Phim lẻ
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          Phim bộ
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          Phim mới
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 d-none d-md-block header__desktop">
-          <div class="header__top-wrap">
-
-
-            <div class="header__top-logo">
-              <a href="/"><img src="./assets/img/paner.png" alt="logo"></a>
-            </div>
-
-            <div class="header__center d-flex">
-              <ul class="header__center-menu d-flex">
-                <li class="center-menu-item">
-                  <a href="#">Phim hot</a>
-                </li>
-                <li class="center-menu-item">
-                  <a href="#">Phim lẻ</a>
-                </li>
-                <li class="center-menu-item">
-                  <a href="#">Phim bộ</a>
-                </li>
-                <li class="center-menu-item">
-                  <a href="#">Phim mới</a>
-                </li>
-              </ul>
-
-              <div class="header__center-search">
-                <form class="search__form">
-                    <label class="input-tag">
-                        <input type="text" id="search__desktop">
-                        <span class="place">
-                            Tìm kiếm
-                        </span>
-                    </label>
-                </form>
-              </div>
-            </div>
-
-            <div class="header__nav-user d-flex">
-              <i class="user-icon fa-solid fa-user"></i>
-
-              <div class="header__nav-wrap">
-                <div class="triangle"></div>
-                <ul class="nav-user-menu">
-                  <li>
-                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-circle-info"></i>
-                      Tài khoản
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/account.html" class="user-menu-item">
-                      <i class="fa-solid fa-heart"></i>
-                      Phim yêu thích
-                    </a>
-                  </li>
-                  <li>
-                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-bookmark"></i>
-                      Phim đã lưu
-                    </a>
-                  </li>
-                  <li>
-                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-clock-rotate-left"></i>
-                      Lịch sử xem
-                    </a>
-                  </li>
-                  <li>
-                    <a class="user-menu-item" href="/account.html"><i class="fa-solid fa-right-from-bracket"></i>
-                      Đăng xuất
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `;
-};
-
-fetch(
-  api.genresList +
-    new URLSearchParams({
-      api_key: api.api_key,
-    }) +
-    api.language
-)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data.genres);
-    data.genres.forEach((item, i) => {
-      // console.log(item, i);
-      if (i < 11 && i !== 5) {
-        if (i % 2 == 0) {
-          fetchMoviesListByGenres(item.id, item.name);
-        } else {
-          fetchMoviesListByCardBig(item.id, item.name);
-        }
-      }
-    });
-  });
-
-const fetchMoviesListByGenres = (id, genres) => {
-  fetch(
-    api.movieGenresLink +
-      new URLSearchParams({
-        api_key: api.api_key,
-        with_genres: id,
-        page: 1,
-      }) +
-      api.language
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      makeCategoryElementSlide(genres, data.results);
-      customCarousel.carousel(data);
-    })
-    .catch((err) => console.log("err"));
-};
-
-const makeCategoryElementSlide = (category, data) => {
-  mainRow.innerHTML += `
-    <div class="col-12">
-      <div class="section__movie-list">
-        <div class="movie-category">
-          <h1>${category}</h1>
-          <a href="/search.html?q=${category}" class="view-all">
-            Xem tất cả
-            <i class="fa-solid fa-angles-right"></i>
-          </a>
-        </div>
-        <div class="movie__container">
-          <div id="${category}" class="owl-carousel owl-theme nominated-slide">
-          
-          </div>
-        </div>
-      </div>
-  `;
-  makeCardsSlide(category, data);
-};
-
-const makeCardsSlide = (id, data) => {
-  const movieContainer = document.getElementById(id);
-  data.forEach((item) => {
-    if (item.backdrop_path == null) {
-      item.backdrop_path = item.poster_path;
-      if (item.backdrop_path == null) {
-        return;
-      }
-    }
-    movieContainer.innerHTML += `
-      <div class="item">
-        <div class="card__movie">
-          <a href="/movie.html?${item.id}" title="${item.title}">
-            <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
-            <p class="movie-title">${item.title}</p>
-            <div class="icon-play">
-              <i class="fa-solid fa-play"></i>
-            </div>
-          </a>
-        </div>
-      </div>
-    `;
-  });
-};
-
-const fetchMoviesListByCardBig = (id, genres) => {
-  fetch(
+const fetchMoviesListByGenres = (id) => {
+  return fetch(
     api.movieGenresLink +
       new URLSearchParams({
         api_key: api.api_key,
@@ -295,19 +73,30 @@ const fetchMoviesListByCardBig = (id, genres) => {
       api.language
   )
     .then((res) => res.json())
-    .then((data) => {
-      makeCategoryElementBig(genres, data.results);
-    })
-    .catch((err) => console.log("err"));
+    .then((data) => data.results);
 };
 
-const makeCategoryElementBig = (category, data) => {
+const callAPI = () => {
+  const promises = genres.map((genre) => fetchMoviesListByGenres(genre.id));
+  Promise.all(promises).then((dataArray) => {
+    dataArray.forEach((data, i) => {
+      if (i % 2 === 0) {
+        makeCategoryElementSlide(genres[i].name, data, genres[i].id);
+        customCarousel.carousel(data);
+      } else {
+        makeCategoryElementBig(genres[i].name, data, genres[i].id);
+      }
+    });
+  });
+};
+
+const makeCategoryElementBig = (category, data, id) => {
   mainRow.innerHTML += `
     <div class="col-12">
       <div class="section__movie-list">
         <div class="movie-category">
           <h1>${category}</h1>
-          <a href="/search.html?q=${category}" class="view-all">
+          <a href="/search.html?with_genres=${id}" class="view-all">
             Xem tất cả
             <i class="fa-solid fa-angles-right"></i>
           </a>
@@ -358,7 +147,7 @@ const makeCardsBig = (id, data) => {
         </div>
         `;
       }
-      if (i > 0 && i < 7) {
+      if (i > 0 && i < 4) {
         rowG2.innerHTML += `
           <div class="col-6 col-md-4">
             <div class="card__movie">
@@ -373,9 +162,23 @@ const makeCardsBig = (id, data) => {
           </div>
         `;
       }
+      if (i > 3 && i < 7) {
+        rowG2.innerHTML += `
+          <div class="col-6 col-md-4 gy-3">
+            <div class="card__movie">
+              <a href="/movie.html?${item.id}" title="${item.title}">
+                <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
+                <p class="movie-title">${item.title}</p>
+                <div class="icon-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
+            </div>
+          </div>`;
+      }
       if (i > 6 && i <= 10) {
         movieContainer.innerHTML += `
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-3 gy-3">
             <div class="card__movie">
               <a href="/movie.html?${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
@@ -390,11 +193,60 @@ const makeCardsBig = (id, data) => {
       }
     }
   });
+
+  loading();
+};
+
+const makeCategoryElementSlide = (category, data, id) => {
+  mainRow.innerHTML += `
+    <div class="col-12">
+      <div class="section__movie-list">
+        <div class="movie-category">
+          <h1>${category}</h1>
+          <a href="/search.html?with_genres=${id}" class="view-all">
+            Xem tất cả
+            <i class="fa-solid fa-angles-right"></i>
+          </a>
+        </div>
+        <div class="movie__container">
+          <div id="${category}" class="owl-carousel owl-theme nominated-slide">
+          
+          </div>
+        </div>
+      </div>
+  `;
+  makeCardsSlide(category, data);
+};
+
+const makeCardsSlide = (id, data) => {
+  const movieContainer = document.getElementById(id);
+  data.forEach((item) => {
+    if (item.backdrop_path == null) {
+      item.backdrop_path = item.poster_path;
+      if (item.backdrop_path == null) {
+        return;
+      }
+    }
+    movieContainer.innerHTML += `
+      <div class="item">
+        <div class="card__movie">
+          <a href="/movie.html?${item.id}" title="${item.title}">
+            <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
+            <p class="movie-title">${item.title}</p>
+            <div class="icon-play">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    `;
+  });
 };
 
 window.onload = () => {
-  // makeHeader();
+  callAPI();
   navSearchMobile();
   navSearchDesktop();
   navMobile();
+  headerOnTop();
 };

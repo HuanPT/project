@@ -14,21 +14,26 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
 
-  <!-- Link owl carousel -->
-  <!-- <link rel="stylesheet" href="./lib/Owlcarousel2/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="./lib/Owlcarousel2/assets/owl.theme.default.min.css"> -->
 </head>
 
 <body>
 
+  <div class="loading">
+    <div>
+      <div class="c1"></div>
+      <div class="c2"></div>
+      <div class="c3"></div>
+      <div class="c4"></div>
+    </div>
+  </div>
+
   <header class="header">
     <div class="container">
       <div class="row">
-
         <div class="col-12 d-md-none heade__Mobile">
           <div class="header__top-wrap">
-            <div class="header__search">
 
+            <div class="header__search">
               <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,20 +46,20 @@
                       Tìm kiếm
                     </span>
                   </label>
-
                 </div>
               </div>
             </div>
-
 
             <div class="header__top-logo">
               <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
             </div>
 
             <div class="header__navbars">
+
               <div class="btn__navbars">
                 <i class="fa-solid fa-bars"></i>
               </div>
+
               <div class="navbars__mobile-detail hidden">
                 <div class="overlay"></div>
                 <div class="navbars__mobile-wrap">
@@ -70,25 +75,25 @@
                   <div class="navbars__mobile-main">
                     <ul class="navbars__mobile-list">
                       <li>
-                        <a href="./account.html" class="user-menu-item">
+                        <a href="./account.html#nav__profile-tab" class="user-menu-item">
                           <i class="fa-solid fa-circle-info"></i>
                           Tài khoản
                         </a>
                       </li>
                       <li>
-                        <a href="./account.html" class="user-menu-item">
+                        <a href="./account.html#nav__favorite-tab" class="user-menu-item">
                           <i class="fa-solid fa-heart"></i>
                           Phim yêu thích
                         </a>
                       </li>
                       <li>
-                        <a href="./account.html" class="user-menu-item">
+                        <a href="./account.html#nav__bookmark-tab" class="user-menu-item">
                           <i class="fa-solid fa-bookmark"></i>
                           Phim đã lưu
                         </a>
                       </li>
                       <li>
-                        <a href="./account.html" class="user-menu-item">
+                        <a href="./account.html#nav__history-tab" class="user-menu-item">
                           <i class="fa-solid fa-clock-rotate-left"></i>
                           Lịch sử xem</a>
                       </li>
@@ -99,29 +104,25 @@
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="user-menu-item">
-                          Phim hot
+                        <a href="/search.html?day" class="user-menu-item">
+                          Phim hot ngày
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="user-menu-item">
-                          Phim lẻ
+                        <a href="/search.html?week" class="user-menu-item">
+                          Phim hot tuần
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="user-menu-item">
-                          Phim bộ
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="user-menu-item">
-                          Phim mới
+                        <a href="/search.html?latest" class="user-menu-item">
+                          Phổ biến
                         </a>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -135,16 +136,13 @@
             <div class="header__center d-flex">
               <ul class="header__center-menu d-flex">
                 <li class="center-menu-item">
-                  <a href="#">Phim hot</a>
+                  <a href="/search.html?day">Phim hot ngày</a>
                 </li>
                 <li class="center-menu-item">
-                  <a href="#">Phim lẻ</a>
+                  <a href="/search.html?week">Phim hot tuần</a>
                 </li>
                 <li class="center-menu-item">
-                  <a href="#">Phim bộ</a>
-                </li>
-                <li class="center-menu-item">
-                  <a href="#">Phim mới</a>
+                  <a href="/search.html?latest">Phổ biến</a>
                 </li>
               </ul>
 
@@ -165,23 +163,26 @@
                 <div class="triangle"></div>
                 <ul class="nav-user-menu">
                   <li>
-                    <a class="user-menu-item" href="./account.html"><i class="fa-solid fa-circle-info"></i>
+                    <a class="user-menu-item" href="./account.html#nav__profile-tab"><i
+                        class="fa-solid fa-circle-info"></i>
                       Tài khoản
                     </a>
                   </li>
                   <li>
-                    <a href="./account.html" class="user-menu-item">
+                    <a href="./account.html#nav__favorite-tab" class="user-menu-item">
                       <i class="fa-solid fa-heart"></i>
                       Phim yêu thích
                     </a>
                   </li>
                   <li>
-                    <a class="user-menu-item" href="./account.html"><i class="fa-solid fa-bookmark"></i>
+                    <a class="user-menu-item" href="./account.html#nav__bookmark-tab"><i
+                        class="fa-solid fa-bookmark"></i>
                       Phim đã lưu
                     </a>
                   </li>
                   <li>
-                    <a class="user-menu-item" href="./account.html"><i class="fa-solid fa-clock-rotate-left"></i>
+                    <a class="user-menu-item" href="./account.html#nav__history-tab"><i
+                        class="fa-solid fa-clock-rotate-left"></i>
                       Lịch sử xem
                     </a>
                   </li>
@@ -202,1318 +203,6 @@
   <div class="main">
     <div class="container">
       <div class="row">
-
-        <!-- <div class="col-12">
-          <div class="section__movie-list">
-            <div class="movie-category">
-              <h1>Phim đề cử</h1>
-              <a class="view-all">
-                Xem tất cả
-                <i class="fa-solid fa-angles-right"></i>
-              </a>
-            </div>
-            <div class="movie__container">
-              <div id="nominated-slide" class="owl-carousel owl-theme">
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- odd-film -->
-        <!-- <div class="col-12">
-          <div class="section__movie-list">
-            <div class="movie-category">
-              <h1>Phim lẻ mới cập nhật</h1>
-              <a href="#" class="view-all">
-                Xem tất cả
-                <i class="fa-solid fa-angles-right"></i>
-              </a>
-            </div>
-            <div class="movie__container">
-              <div class="row gy-2">
-                <div class="col-12 col-md-5">
-                  <div class="card__movie card__movie-big">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="row gy-2">
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                          <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- trend-film -->
-        <!-- <div class="col-12">
-          <div class="section__movie-list">
-            <div class="movie-category">
-              <h1>Phim thịnh hành</h1>
-              <a href="#" class="view-all">
-                Xem tất cả
-                <i class="fa-solid fa-angles-right"></i>
-              </a>
-            </div>
-            <div class="movie__container">
-              <div id="trend-slide" class="owl-carousel owl-theme">
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- series movie -->
-        <!-- <div class="col-12">
-          <div class="section__movie-list">
-            <div class="movie-category">
-              <h1>Phim bộ mới cập nhật</h1>
-              <a href="#" class="view-all">
-                Xem tất cả
-                <i class="fa-solid fa-angles-right"></i>
-              </a>
-            </div>
-            <div class="movie__container">
-              <div class="row gy-2">
-                <div class="col-12 col-md-5">
-                  <div class="card__movie card__movie-big">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-md-7">
-                  <div class="row gy-2">
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                          <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                      <div class="card__movie">
-                        <a href="#">
-                          <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                          <p class="movie-title">movie name</p>
-                          <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                          </div>
-                          <div class="bookmark-rate">
-                            <div class="bookmark">
-                              <i class="un-bookmark fa-regular fa-bookmark"></i>
-                              <i class="active-bookmark fa-solid fa-bookmark"></i>
-                            </div>
-                            <div class="rate">
-                              <i class="rate-icon fa-solid fa-star"></i>
-                              8.4
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- coming-film -->
-        <!-- <div class="col-12">
-          <div class="section__movie-list">
-            <div class="movie-category">
-              <h1>Phim sắp chiếu</h1>
-              <a href="#" class="view-all">
-                Xem tất cả
-                <i class="fa-solid fa-angles-right"></i>
-              </a>
-            </div>
-            <div class="movie__container">
-              <div id="coming-slide" class="owl-carousel owl-theme">
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//ayDMYGUNVvXS76wQgFwTiUIDNb5.jpg" alt="">
-                      <p class="movie-title">movie namesadsadsadsadsadsadsa</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//yEQqrW61rwNuVRHTjgHOAU4dXNE.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//v2995GwNVZc5JYK0WPxgzi0AgkB.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//2cQMVHBaP1wK0UBX5SGDahB3lp3.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="card__movie">
-                    <a href="#">
-                      <img src="https://image.tmdb.org/t/p/w500//729a5iDNxr5l2Zbc8lcwndlJavN.jpg" alt="">
-                      <p class="movie-title">movie name</p>
-                      <div class="icon-play">
-                        <i class="fa-solid fa-play"></i>
-                      </div>
-                      <div class="bookmark-rate">
-                        <div class="rate">
-                          <i class="rate-icon fa-solid fa-star"></i>
-                          8.4
-                        </div>
-                        <div class="bookmark">
-                          <i class="un-bookmark fa-regular fa-bookmark"></i>
-                          <i class="active-bookmark fa-solid fa-bookmark"></i>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
       </div>
     </div>
@@ -1588,8 +277,13 @@
         </div>
       </div>
     </div>
+
+
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="./assets/js/home.js"></script>
 </body>
 

@@ -1,3 +1,5 @@
+/* @import url("responsiveIndex.css"); */
+
 .filter__list {
     padding: 1rem;
     font-size: 1.6rem;
@@ -18,8 +20,9 @@
     border-radius: .5rem;
 }
 
-.filter__item select option {
+.filter__item select>* {
     width: 100%;
+    font-size: 1.4rem;
 }
 
 .filter__item select option:hover {

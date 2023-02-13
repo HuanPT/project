@@ -16,14 +16,21 @@
 </head>
 
 <body>
+    <div class="loading">
+        <div>
+            <div class="c1"></div>
+            <div class="c2"></div>
+            <div class="c3"></div>
+            <div class="c4"></div>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <div class="row">
-
                 <div class="col-12 d-md-none heade__Mobile">
                     <div class="header__top-wrap">
-                        <div class="header__search">
 
+                        <div class="header__search">
                             <div class="dropdown">
                                 <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,20 +43,20 @@
                                             Tìm kiếm
                                         </span>
                                     </label>
-
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="header__top-logo">
                             <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
                         </div>
 
                         <div class="header__navbars">
+
                             <div class="btn__navbars">
                                 <i class="fa-solid fa-bars"></i>
                             </div>
+
                             <div class="navbars__mobile-detail hidden">
                                 <div class="overlay"></div>
                                 <div class="navbars__mobile-wrap">
@@ -65,25 +72,25 @@
                                     <div class="navbars__mobile-main">
                                         <ul class="navbars__mobile-list">
                                             <li>
-                                                <a href="./account.html" class="user-menu-item">
+                                                <a href="./account.html#nav__profile-tab" class="user-menu-item">
                                                     <i class="fa-solid fa-circle-info"></i>
                                                     Tài khoản
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="./account.html" class="user-menu-item">
+                                                <a href="./account.html#nav__favorite-tab" class="user-menu-item">
                                                     <i class="fa-solid fa-heart"></i>
                                                     Phim yêu thích
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="./account.html" class="user-menu-item">
+                                                <a href="./account.html#nav__bookmark-tab" class="user-menu-item">
                                                     <i class="fa-solid fa-bookmark"></i>
                                                     Phim đã lưu
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="./account.html" class="user-menu-item">
+                                                <a href="./account.html#nav__history-tab" class="user-menu-item">
                                                     <i class="fa-solid fa-clock-rotate-left"></i>
                                                     Lịch sử xem</a>
                                             </li>
@@ -94,29 +101,25 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
-                                                    Phim hot
+                                                <a href="/search.html?day" class="user-menu-item">
+                                                    Phim hot ngày
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
-                                                    Phim lẻ
+                                                <a href="/search.html?week" class="user-menu-item">
+                                                    Phim hot tuần
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-menu-item">
-                                                    Phim bộ
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="user-menu-item">
-                                                    Phim mới
+                                                <a href="/search.html?latest" class="user-menu-item">
+                                                    Phổ biến
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -130,16 +133,13 @@
                         <div class="header__center d-flex">
                             <ul class="header__center-menu d-flex">
                                 <li class="center-menu-item">
-                                    <a href="#">Phim hot</a>
+                                    <a href="/search.html?day">Phim hot ngày</a>
                                 </li>
                                 <li class="center-menu-item">
-                                    <a href="#">Phim lẻ</a>
+                                    <a href="/search.html?week">Phim hot tuần</a>
                                 </li>
                                 <li class="center-menu-item">
-                                    <a href="#">Phim bộ</a>
-                                </li>
-                                <li class="center-menu-item">
-                                    <a href="#">Phim mới</a>
+                                    <a href="/search.html?latest">Phổ biến</a>
                                 </li>
                             </ul>
 
@@ -160,25 +160,25 @@
                                 <div class="triangle"></div>
                                 <ul class="nav-user-menu">
                                     <li>
-                                        <a class="user-menu-item" href="./account.html"><i
+                                        <a class="user-menu-item" href="./account.html#nav__profile-tab"><i
                                                 class="fa-solid fa-circle-info"></i>
                                             Tài khoản
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="./account.html" class="user-menu-item">
+                                        <a href="./account.html#nav__favorite-tab" class="user-menu-item">
                                             <i class="fa-solid fa-heart"></i>
                                             Phim yêu thích
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="user-menu-item" href="./account.html"><i
+                                        <a class="user-menu-item" href="./account.html#nav__bookmark-tab"><i
                                                 class="fa-solid fa-bookmark"></i>
                                             Phim đã lưu
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="user-menu-item" href="./account.html"><i
+                                        <a class="user-menu-item" href="./account.html#nav__history-tab"><i
                                                 class="fa-solid fa-clock-rotate-left"></i>
                                             Lịch sử xem
                                         </a>
@@ -202,61 +202,36 @@
         <div class="container">
             <nav class="filter__list">
                 <div class="row gy-2">
-                    <div class="col-6 col-sm-3">
+                    <div class="col-6 col-md-3">
                         <div class="filter__item">
                             <select name="genres" id="filter__item-genres">
 
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-3">
+                    <div class="col-6 col-md-3">
                         <div class="filter__item">
                             <select name="years" id="filter__item-years">
-                                <!-- <option selected value> -- Năm --
-                                </option>
-                                <option value="24">Bí ẩn</option>
-                                <option value="1">Hành động</option>
-                                <option value="2">Hoạt hình</option> -->
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-3">
+                    <div class="col-6 col-md-3">
                         <div class="filter__item">
                             <select name="country" id="filter__item-country">
-                                <!-- <option selected value> -- Quốc gia --
-                                </option> -->
-                                <!-- <option value="24">Bí ẩn</option>
-                                <option value="1">Hành động</option>
-                                <option value="2">Hoạt hình</option> -->
+
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 col-sm-3">
+                    <div class="col-6 col-md-3">
                         <button class="btn btn-primary" id="remove__filter">Bỏ lọc</button>
                     </div>
                 </div>
             </nav>
 
-            <h1 class="search__title mt-4">Từ khóa tìm kiếm: <span class="search__keyword"></span></h1>
+            <h1 class="search__title mt-4">Từ khóa: <span class="search__keyword"></span></h1>
 
             <ul class="list__film mt-3">
-                <!-- <li class="card__movie">
-                    <a href="#" class="d-block d-md-none">
-                        <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg"
-                            alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="d-none d-md-block">
-                        <img src="https://image.tmdb.org/t/p/w220_and_h330_face/eiBMu2noc6r1QZLfQlFhfVtbXeM.jpg" alt="">
-                        <p class="movie-title">movie name</p>
-                        <div class="icon-play">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                    </a>
-                </li> -->
+
             </ul>
 
             <!-- Search pagination -->
@@ -264,17 +239,15 @@
                 <nav aria-label="...">
                     <ul class="pagination justify-content-center pagination-lg">
                         <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            <a class="page-link previous-page" tabindex="-1" aria-disabled="true">
+                                &lt; Prev
+                            </a>
                         </li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">1</a>
+                        <li class="page-item active">
+                            <a class="page-link current-page">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link next-page">Next &gt;</a>
                         </li>
                     </ul>
                 </nav>

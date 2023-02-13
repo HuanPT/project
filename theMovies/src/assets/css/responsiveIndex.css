@@ -18,7 +18,7 @@
         font-size: 4rem;
     }
 
-    .btn-down-app a,
+    .btn__down-app a,
     .section__card-text-subtitle {
         font-size: 2rem;
     }
@@ -32,6 +32,12 @@
     /* Home Responsive */
     .section__movie-list {
         padding: 3rem 2rem;
+    }
+
+    /* Watch.css */
+    #play {
+        width: 510px;
+        height: 315px;
     }
 }
 
@@ -73,17 +79,17 @@
         padding: 0 2rem 0 0;
     }
 
-    .btn.btn-down-app {
+    .btn.btn__down-app {
         margin: 1rem 0;
         align-self: flex-start;
-        width: 220px;
+        padding-inline: 2rem;
     }
 
     .section__card-text .section__card-text-title {
         font-size: 5rem;
     }
 
-    .btn-down-app a,
+    .btn__down-app a,
     .section__card-text-subtitle {
         font-size: 2.6rem;
     }
@@ -94,15 +100,6 @@
 
 
     /* Home Responsive */
-    .section__movie-list {
-        padding: 3rem 2rem;
-    }
-
-    .card__movie-big .movie-title {
-        font-size: 2rem;
-        padding: 1rem;
-
-    }
 
     .card__movie-big .bookmark-rate {
         padding: 1rem;
@@ -130,7 +127,7 @@
     }
 
     .movie-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
 
@@ -161,12 +158,16 @@
         gap: 1.5rem;
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .cast {
+        gap: 4rem;
+    }
 }
 
 @media screen and (min-width: 950px) {
 
     .header__top-logo img {
-        height: 6rem;
+        height: 5rem;
     }
 
     .header__top-wrap {
@@ -174,7 +175,7 @@
     }
 
     .header__nav-wrap {
-        top: 4rem;
+        top: 3.5rem;
     }
 
     .section__card-bgr {
@@ -231,8 +232,12 @@
     }
 
     .actor__img {
-        width: 18rem;
-        height: 18rem;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .cast {
+        gap: 5rem;
     }
 
 }

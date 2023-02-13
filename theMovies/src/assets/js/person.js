@@ -1,20 +1,26 @@
-import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
-import "@lib/Owlcarousel2/assets/owl.theme.default.min.css";
+// import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
+// import "@lib/Owlcarousel2/assets/owl.theme.default.min.css";
 import "@assets/css/index.css";
 import "@assets/css/movie.css";
 import "@assets/css/person.css";
 import "@assets/css/search.css";
-import "@assets/css/responsiveIndex.css";
+// import "@assets/css/responsiveIndex.css";
 
-import "@lib/jquery-3.6.1.min.js";
-import "@lib/Owlcarousel2/owl.carousel.min.js";
+// import "@lib/jquery-3.6.1.min.js";
+// import "@lib/Owlcarousel2/owl.carousel.min.js";
 
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import * as api from "./api.js";
-import { navSearchDesktop, navSearchMobile } from "./common";
+import {
+  navSearchDesktop,
+  navSearchMobile,
+  navMobile,
+  headerOnTop,
+  loading,
+} from "./common";
 
 let personId = location.search.replace("?", "");
 // console.log(movieId);
@@ -112,7 +118,7 @@ const cardMovie = (data) => {
     ) {
       ul.innerHTML += `
         <li class="card__movie">
-            <a href="./movie.html?${listCast[i].id}" class="d-block d-md-none">
+            <a href="./movie.html?${listCast[i].id}" title="${listCast[i].title}" class="d-block d-md-none">
                 <img src="${api.imgUrlW533}${listCast[i].backdrop_path}"
                     alt="${listCast[i].title}">
                 <p class="movie-title">${listCast[i].title}</p>
@@ -120,7 +126,7 @@ const cardMovie = (data) => {
                     <i class="fa-solid fa-play"></i>
                 </div>
             </a>
-            <a href="./movie.html?${listCast[i].id}" class="d-none d-md-block">
+            <a href="./movie.html?${listCast[i].id}" title="${listCast[i].title}" class="d-none d-md-block">
                 <img src="${api.imgUrlW220}${listCast[i].poster_path}"
                     alt="${listCast[i].title}">
                 <p class="movie-title">${listCast[i].title}</p>
@@ -137,4 +143,7 @@ const cardMovie = (data) => {
 window.onload = () => {
   navSearchDesktop();
   navSearchMobile();
+  headerOnTop();
+  navMobile();
+  loading();
 };

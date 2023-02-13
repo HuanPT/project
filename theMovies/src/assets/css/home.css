@@ -1,4 +1,10 @@
+@import url("@lib/Owlcarousel2/assets/owl.carousel.min.css");
+@import url("@lib/Owlcarousel2/assets/owl.theme.default.min.css");
 @import url("bootstrap/dist/css/bootstrap.min.css");
+@import url("responsiveIndex.css");
+
+/* import "@lib/Owlcarousel2/assets/owl.carousel.min.css";
+import "@lib/Owlcarousel2/assets/owl.theme.default.min.css"; */
 
 :root {
     --white-color: #fff;
@@ -56,6 +62,156 @@ video {
     }
 }
 
+.loading {
+    width: 100%;
+    height: 100%;
+    background: #16171d;
+    opacity: .9;
+    position: fixed;
+    z-index: 1000;
+}
+
+.loading>div {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    top: 50%;
+    margin-top: -30px;
+}
+
+
+.loading>div>div {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ff8c00;
+    top: 10px;
+    left: 10px;
+    transform-origin: 20px 20px;
+    border-radius: 8px;
+    animation: spin-a 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.loading>div>.c2 {
+    top: 10px;
+    left: auto;
+    right: 10px;
+    transform-origin: -4px 20px;
+    animation: spin-b 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.loading>div>.c3 {
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+    transform-origin: -4px -4px;
+    animation: spin-c 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.loading>div>.c4 {
+    top: auto;
+    bottom: 10px;
+    transform-origin: 20px -4px;
+    animation: spin-d 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+@keyframes spin-a {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    0% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-b {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-c {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-d {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 .btn.btn-red:hover {
     background-color: var(--red-color);
     opacity: .8;
@@ -69,9 +225,10 @@ video {
 }
 
 .header {
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
     padding: 1rem 0;
-    background: #000;
 }
 
 .container {
@@ -211,7 +368,6 @@ a.btn-red {
     display: flex;
     position: relative;
     align-items: center;
-    background: #000;
     justify-content: space-between;
 }
 
@@ -351,7 +507,6 @@ a.btn-red {
     --growth-from: 0.2;
     --growth-to: 1;
     top: 3rem;
-    right: 0;
     display: none;
     width: 50px;
     height: 30px;
@@ -363,14 +518,12 @@ a.btn-red {
     z-index: 2;
 }
 
-
-
 .triangle {
     top: 33%;
     width: 0;
     height: 0;
     z-index: 1;
-    right: 27%;
+    right: 44%;
     border-top: 0;
     position: absolute;
     border-style: solid;
@@ -395,6 +548,10 @@ a.btn-red {
 }
 
 /* Main/.Start */
+.main {
+    padding-top: 7rem;
+}
+
 .section__movie-list {
     padding: 3rem .75rem;
 }
@@ -421,6 +578,10 @@ a.btn-red {
 .view-all:hover {
     cursor: pointer;
     color: var(--orange-color);
+}
+
+.movie__container {
+    padding-inline: 1rem;
 }
 
 /* Carousel Css */
@@ -476,9 +637,7 @@ a.btn-red {
 }
 
 .card__movie-big .movie-title {
-    font-size: 1.6rem;
     padding: 1rem;
-
 }
 
 .card__movie-big .bookmark-rate {
@@ -530,6 +689,8 @@ a.btn-red {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 4rem;
+    height: 4rem;
     color: #fff;
     opacity: 0;
     font-size: 2.6rem;
@@ -541,7 +702,7 @@ a.btn-red {
 }
 
 .card__movie-big .icon-play {
-    font-size: 3.5rem;
+    font-size: 3rem;
     padding: 0rem 1rem 0 1.6rem;
 }
 
