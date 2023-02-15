@@ -16,6 +16,7 @@ import {
   headerOnTop,
   getURLparams,
   loading,
+  getUser,
 } from "./common";
 
 let countries = [
@@ -422,4 +423,5 @@ window.onload = () => {
   headerOnTop();
   removeFilter();
   loading();
+  getUser();
 };

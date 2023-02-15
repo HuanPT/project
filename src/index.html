@@ -26,7 +26,7 @@
       <div class="c4"></div>
     </div>
   </div>
-  <div class="form register">
+  <div class="form register d-none">
     <div class="overlay"></div>
     <div class="form__wrapper">
       <div class="form__section">
@@ -39,6 +39,7 @@
                 Họ và tên
               </span>
             </label>
+            <span class="input-error"></span>
           </div>
           <div class="email__group login__input-group">
             <label class="label__input">
@@ -47,7 +48,7 @@
                 Địa chỉ email
               </span>
             </label>
-            <span class="input-error">Email chưa chính xác</span>
+            <span class="input-error"></span>
           </div>
           <div class="password__group  login__input-group">
             <div class="wrap__label has__password-toggle">
@@ -57,9 +58,9 @@
                   Mật khẩu
                 </span>
               </label>
-              <button type="button" class="btn btn__password-toggle">Hiện</button>
+              <button type="button" class="btn btn__password-toggle d-none">Hiện</button>
             </div>
-            <span class="input-error">chưa chính xác</span>
+            <span class="input-error"></span>
 
           </div>
 
@@ -88,25 +89,25 @@
           <h1>Đăng nhập</h1>
           <div class="email__group login__input-group">
             <label class="label__input">
-              <input type="email" name="email" tabindex="0" class="input-tag email__login" maxlength="50" minlength="5">
+              <input type="email" name="email" tabindex="0" class="input-tag email__login" maxlength="50">
               <span class="place">
                 Địa chỉ email
               </span>
             </label>
-            <span class="input-error">Email chưa chính xác</span>
+            <span class="input-error"></span>
           </div>
           <div class="password__group  login__input-group">
             <div class="wrap__label has__password-toggle">
               <label class="label__input">
                 <input type="password" name="password" tabindex="0" class="input-tag password__login" maxlength="50"
-                  minlength="5">
+                  minlength="6">
                 <span class="place">
                   Mật khẩu
                 </span>
               </label>
-              <button type="button" class="btn btn__password-toggle">Hiện</button>
+              <button type="button" class="btn btn__password-toggle d-none">Hiện</button>
             </div>
-            <span class="input-error">Email chưa chính xác</span>
+            <span class="input-error"></span>
 
           </div>
 
@@ -137,7 +138,7 @@
           <div class="login__input-group">
             <label class="label__input">
               <input type="email" name="email" id="email__forget" tabindex="0" class="input-tag email__login"
-                maxlength="50" minlength="5">
+                maxlength="50">
               <span class="place">
                 Địa chỉ email
               </span>
@@ -155,7 +156,7 @@
           <div class="login__input-group">
             <label class="label__input" for="code__confirm">
               <input type="text" name="confirm" id="code__confirm" tabindex="0" class="input-tag" maxlength="50"
-                minlength="4">
+                minlength="6">
               <span class="place">
                 Mã xác minh
               </span>
@@ -173,28 +174,28 @@
             <div class="wrap__label has__password-toggle">
               <label class="label__input">
                 <input type="password" name="new__password" id="new__password" tabindex="0" class="input-tag"
-                  maxlength="50" minlength="5">
+                  maxlength="50" minlength="6">
                 <span class="place">
                   Mật khẩu
                 </span>
               </label>
-              <button type="button" class="btn btn__password-toggle">Hiện</button>
+              <button type="button" class="btn btn__password-toggle d-none">Hiện</button>
             </div>
-            <span class="input-error">Email chưa chính xác</span>
+            <span class="input-error"></span>
 
           </div>
           <div class="password__group  login__input-group">
             <div class="wrap__label has__password-toggle">
               <label class="label__input">
                 <input type="password" name="enter__password" id="enter__password" tabindex="0" class="input-tag"
-                  maxlength="50" minlength="5">
+                  maxlength="50" minlength="6">
                 <span class="place">
                   Mật khẩu
                 </span>
               </label>
-              <button type="button" class="btn btn__password-toggle">Hiện</button>
+              <button type="button" class="btn btn__password-toggle d-none">Hiện</button>
             </div>
-            <span class="input-error">Email chưa chính xác</span>
+            <span class="input-error"></span>
           </div>
           <div class="form__btn form__btn-save">
             <button type="button" class="btn btn-red">Lưu</button>
@@ -266,7 +267,7 @@
               <div class="email__form-input">
                 <div class="wrap__form">
                   <label class="label__input">
-                    <input type="email" name="email" tabindex="0" class="input-tag" maxlength="50" minlength="5">
+                    <input type="email" name="email" tabindex="0" class="input-tag" maxlength="50">
                     <span class="place">
                       Địa chỉ email
                     </span>
@@ -591,7 +592,7 @@
                   <div class="email__form-input">
                     <div class="wrap__form">
                       <label class="label__input">
-                        <input type="email" name="email" tabindex="0" class="input-tag" maxlength="50" minlength="5">
+                        <input type="email" name="email" tabindex="0" class="input-tag" maxlength="50">
                         <span class="place">
                           Địa chỉ email
                         </span>

@@ -59,7 +59,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-40%, -50%);
+    transform: translate(-37%, -50%);
 }
 
 .film__info-img .icon-play:hover {
@@ -316,13 +316,13 @@
 
 .tab-content .card {
     overflow: hidden;
-    border: 1px solid var(--white-color);
+    border: .1rem solid var(--white-color);
     transition: all ease-in-out .2s;
 }
 
 .tab-content .card:hover {
     overflow: hidden;
-    border: 1px solid var(--orange-color);
+    border: .1rem solid var(--orange-color);
 }
 
 .tab-content .card a {
@@ -365,8 +365,11 @@
 }
 
 .tab-content .card-body .wrap {
-    margin: .5rem;
+    margin: 0.5rem;
+    display: flex;
     padding-block: 0;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .tab-content .img-fluid.rounded-start {
@@ -414,13 +417,13 @@
     white-space: nowrap;
     display: inline-block;
     padding-inline: .5rem;
-    border-radius: 10px;
-    border: 1px solid var(--white-color);
+    border-radius: 1rem;
+    border: .1rem solid var(--white-color);
 }
 
 .card__genres-text:hover {
     background: var(--black-color);
-    border: 1px solid var(--orange-color);
+    border: .1rem solid var(--orange-color);
 }
 
 .tab-content .btn.btn-remove:hover {

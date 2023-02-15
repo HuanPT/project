@@ -34,11 +34,6 @@
         padding: 3rem 2rem;
     }
 
-    /* Watch.css */
-    #play {
-        width: 510px;
-        height: 315px;
-    }
 }
 
 @media screen and (min-width: 768px) {
@@ -130,6 +125,9 @@
         font-size: 1.6rem;
     }
 
+    .movie-category>h1 {
+        font-size: 2.6rem;
+    }
 
     /* Search HTML */
     .list__film {
@@ -171,7 +169,7 @@
     }
 
     .header__top-wrap {
-        margin: 0 5vw;
+        margin: 0 3vw;
     }
 
     .header__nav-wrap {

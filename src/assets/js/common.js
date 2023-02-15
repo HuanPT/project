@@ -1,3 +1,7 @@
+import { auth, db } from "./firebase.js";
+import { getDocs, collection, doc } from "firebase/firestore";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+
 export const navSearchDesktop = () => {
   const inputDesktop = document.querySelector("#search__desktop");
   console.log(inputDesktop);
@@ -42,6 +46,7 @@ export function backToTop() {
 }
 
 export const loading = (s) => {
+  document.querySelector(".loading").style.display = "block";
   setTimeout(
     () => {
       document.querySelector(".loading").style.display = "none";
@@ -101,7 +106,7 @@ export const selectedHash = () => {
 };
 
 function toast({ title = "", message = "", type = "info", duration = 3000 }) {
-  const main = document.getElementById("toast");
+  const main = document.querySelector("#toast");
   if (!main) return;
 
   const toast = document.createElement("div");
@@ -189,3 +194,43 @@ export function isEmailValid(value) {
   const regex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
   return regex.test(value);
 }
+
+export const getUser = () => {
+  const userName = document.querySelector(".mobile__user-name");
+  const hasUserM = document.querySelector(".header__navbars");
+  const hasUserD = document.querySelector(".header__nav-user");
+  const notUsers = document.querySelectorAll(".header__login");
+  auth.onAuthStateChanged((user) => {
+    console.log(user);
+    if (user !== null) {
+      notUsers.forEach((item) => {
+        item.style.display = "none";
+      });
+      hasUserM.style.display = "block";
+      hasUserD.classList.add("d-flex");
+      userName.innerHTML = `<h3>Chào ${user.displayName}!</h3>`;
+      const btnLogouts = document.querySelectorAll(".logout");
+      btnLogouts.forEach((item) => {
+        console.log(item);
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          signOut(auth)
+            .then(() => {
+              setTimeout(() => {
+                location.href = "/";
+              }, 200);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        });
+      });
+    } else {
+      notUsers.forEach((item) => {
+        item.style.display = "block";
+      });
+      hasUserM.style.display = "none";
+      hasUserD.classList.remove("d-flex");
+    }
+  });
+};

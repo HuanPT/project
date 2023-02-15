@@ -13,6 +13,7 @@ import {
   navMobile,
   headerOnTop,
   loading,
+  getUser
 } from "./common";
 
 const main = document.querySelector(".main");
@@ -249,4 +250,5 @@ window.onload = () => {
   navSearchDesktop();
   navMobile();
   headerOnTop();
+  getUser();
 };

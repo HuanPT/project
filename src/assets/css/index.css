@@ -7,7 +7,8 @@
     --black-color: #222;
     --orange-color: #ffa00a;
     --blue-color: #0071eb;
-    --text-gray: #8c8c8c;
+    --text-gray: #737373;
+    --bs-dark-rgb: #222;
 }
 
 html {
@@ -58,7 +59,7 @@ video {
 }
 
 .container {
-    max-width: 1920px;
+    max-width: 192rem;
 }
 
 .btn-red {
@@ -67,10 +68,6 @@ video {
     background-color: var(--red-color);
 }
 
-/* .btn-red {
-    background-color: var(--red-color);
-    
-} */
 
 .header__top-logo img {
     height: 4rem
@@ -83,8 +80,10 @@ video {
 }
 
 .header__top-wrap {
+    gap: 1rem;
     margin: 0 5vw;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
 }
@@ -99,7 +98,7 @@ video {
 }
 
 .section__card-wrap {
-    max-width: 1100px;
+    max-width: 110rem;
     margin: 0 auto
 }
 
@@ -133,7 +132,7 @@ video {
 
 .section__card-text {
     margin: 0 auto;
-    max-width: 950px;
+    max-width: 95rem;
     position: relative;
     text-align: center;
     width: 100%;
@@ -143,14 +142,14 @@ video {
 
 .section__card-text .section__card-text-title {
     font-size: 2.6rem;
-    max-width: 640px;
+    max-width: 64rem, ;
     margin: 0 auto;
 }
 
 .section__card-text-subtitle {
     margin: 1.6rem auto;
     font-size: 1.8rem;
-    max-width: 640px;
+    max-width: 64rem;
     font-weight: 400;
 }
 
@@ -170,7 +169,7 @@ video {
 
 .email__form .email__form-title {
     font-size: 1.8rem;
-    max-width: 450px;
+    max-width: 45rem;
     padding: 0 5%;
     font-weight: 400;
     margin: 0 auto;
@@ -182,7 +181,7 @@ video {
 
 .email__form-input {
     margin: 1.6rem 0;
-    max-width: 500px;
+    max-width: 50rem;
     width: 100%;
 }
 
@@ -190,7 +189,7 @@ video {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 500px;
+    max-width: 50rem;
     width: 100%;
 }
 
@@ -201,7 +200,7 @@ video {
 
 .label__input .input-tag {
     width: 100%;
-    height: 48px;
+    height: 4.8rem;
     border: 0;
     outline: none;
     border-radius: .5rem;
@@ -248,7 +247,7 @@ video {
 /* Section card */
 .section__card-img {
     margin: 1.6rem auto 0;
-    max-width: 600px;
+    max-width: 60rem;
     width: 100%;
     display: flex;
     flex: 0 1 auto;
@@ -309,7 +308,7 @@ video {
     display: flex;
     left: 50%;
     margin: 0 auto;
-    min-width: 240px;
+    min-width: 24rem;
     padding: 0.4rem 1rem;
     position: absolute;
     transform: translateX(-50%);
@@ -365,7 +364,7 @@ video {
 
 .section__faq-list li {
     margin: 1rem auto;
-    max-width: 815px;
+    max-width: 81.5rem;
 
 }
 
@@ -401,7 +400,7 @@ video {
 }
 
 .open-answers {
-    max-height: 1200px !important;
+    max-height: 120rem !important;
     transition: max-height ease-in-out .3s;
 }
 
@@ -411,7 +410,7 @@ video {
 
 /* Footer */
 .footer {
-    max-width: 1000px;
+    max-width: 100rem;
     margin: 0 auto;
 }
 
@@ -486,7 +485,7 @@ video {
 
 .form__item .input-tag {
     color: #ccc;
-    border-bottom: .2rem solid #e87c03;
+    /* border-bottom: .2rem solid #e87c03; */
     background-color: #333;
 }
 
@@ -502,7 +501,6 @@ video {
 }
 
 .btn.btn__password-toggle {
-    /* display: none; */
     border: 0;
     position: absolute;
     top: 0;
@@ -702,16 +700,16 @@ input[type=checkbox]:checked::before {
 }
 
 .toast+.toast {
-    margin-top: 24px;
+    margin-top: 2.4rem;
 }
 
 .toast__icon {
-    font-size: 24px;
+    font-size: 2.4rem;
 }
 
 .toast__icon,
 .toast__close {
-    padding: 0 16px;
+    padding: 0 1.6rem;
 }
 
 .toast__body {
@@ -719,7 +717,7 @@ input[type=checkbox]:checked::before {
 }
 
 .toast__title {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     color: var(--black-color);
     margin: 0;
@@ -727,13 +725,13 @@ input[type=checkbox]:checked::before {
 
 .toast__msg {
     color: #333;
-    font-size: 14px;
+    font-size: 1.4rem;
     margin: 0;
     line-height: 1.5;
 }
 
 .toast__close {
-    font-size: 20px;
+    font-size: 2rem;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.3);
 }
@@ -752,50 +750,50 @@ input[type=checkbox]:checked::before {
 }
 
 .loading>div {
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
     position: absolute;
     left: 50%;
-    margin-left: -30px;
+    margin-left: -3rem;
     top: 50%;
-    margin-top: -30px;
+    margin-top: -3rem;
 }
 
 
 .loading>div>div {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
     background: #ff8c00;
-    top: 10px;
-    left: 10px;
-    transform-origin: 20px 20px;
-    border-radius: 8px;
+    top: 1rem;
+    left: 1rem;
+    transform-origin: 2rem 2rem;
+    border-radius: .8rem;
     animation: spin-a 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 .loading>div>.c2 {
-    top: 10px;
+    top: 1rem;
     left: auto;
-    right: 10px;
-    transform-origin: -4px 20px;
+    right: 1rem;
+    transform-origin: -.4rem 2rem;
     animation: spin-b 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 .loading>div>.c3 {
     top: auto;
     left: auto;
-    right: 10px;
-    bottom: 10px;
-    transform-origin: -4px -4px;
+    right: 1rem;
+    bottom: 1rem;
+    transform-origin: -.4rem -.4rem;
     animation: spin-c 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
 }
 
 .loading>div>.c4 {
     top: auto;
-    bottom: 10px;
-    transform-origin: 20px -4px;
+    bottom: 1rem;
+    transform-origin: 2rem -.4rem;
     animation: spin-d 2s infinite cubic-bezier(0.5, 0, 0.5, 1);
 }
 

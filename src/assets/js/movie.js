@@ -3,6 +3,17 @@ import "@assets/css/movie.css";
 import "@assets/css/search.css";
 import "@assets/css/person.css";
 
+import { auth, db } from "./firebase.js";
+import { onAuthStateChanged } from "firebase/auth";
+import {
+  getDoc,
+  setDoc,
+  collection,
+  doc,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
+
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -16,6 +27,7 @@ import {
   navMobile,
   headerOnTop,
   loading,
+  getUser,
 } from "./common.js";
 
 let movieId = location.search.replace("?", "");
@@ -37,7 +49,7 @@ const callApiMovie = (movieId) => {
     .then((data) => {
       setupMovieInfo(data, movieId);
     })
-    .catch((err) => console.log("err"));
+    .catch((err) => console.log(err));
 };
 
 const setupMovieInfo = (data, movieId) => {
@@ -221,9 +233,7 @@ const editor = (data) => {
   if (length == 0) editor.innerHTML += "Đang xác minh";
   for (let i = 0; i < length; i++) {
     editor.innerHTML += `
-      <a href="./search.html?q=${editors[i].name}">${
-      editors[i].name
-    }</a>${formatString(i, length)}
+      <a>${editors[i].name}</a>${formatString(i, length)}
     `;
   }
 };
@@ -325,6 +335,7 @@ const callApiTrailer = () => {
       wrapIframe.append(item);
     });
 };
+
 // fetch recommendations
 const recommendations = () => {
   fetch(
@@ -457,6 +468,26 @@ const bookmark = (movieId) => {
   bookmarkBtn.addEventListener("click", toggleBookmark);
 };
 
+// const isUser = () => {
+//   auth.onAuthStateChanged((user) => {
+//     if (!user) {
+//       console.log("User is not logged in.");
+//       return;
+//     }
+
+//     const userId = user.uid;
+//     const addMovieToFavorites = (userId, movieId) => {
+//       const favoritesRef = doc(db, "users", userId);
+//       updateDoc(favoritesRef, {
+//         favorites: arrayUnion(movieId),
+//       });
+//     };
+
+//     addMovieToFavorites(userId, movieId);
+//     console.log(user);
+//   });
+// };
+
 window.onload = () => {
   callApiMovie(movieId);
   navSearchDesktop();
@@ -467,4 +498,6 @@ window.onload = () => {
   callApiTrailer();
   loading();
   recommendations();
+  getUser();
+  // isUser();
 };

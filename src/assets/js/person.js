@@ -20,6 +20,7 @@ import {
   navMobile,
   headerOnTop,
   loading,
+  getUser,
 } from "./common";
 
 let personId = location.search.replace("?", "");
@@ -146,4 +147,5 @@ window.onload = () => {
   headerOnTop();
   navMobile();
   loading();
+  getUser();
 };

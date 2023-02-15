@@ -17,6 +17,7 @@ import {
   selectedHash,
   backToTop,
   loading,
+  getUser,
 } from "./common.js";
 
 // const callApiMovies = async () => {
@@ -280,4 +281,5 @@ window.onload = () => {
   headerOnTop();
   selectedHash();
   loading();
+  getUser();
 };
