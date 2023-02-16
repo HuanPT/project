@@ -21,6 +21,7 @@ import {
   headerOnTop,
   loading,
   getUser,
+  loginBtn,
 } from "./common";
 
 let personId = location.search.replace("?", "");
@@ -148,4 +149,5 @@ window.onload = () => {
   navMobile();
   loading();
   getUser();
+  loginBtn();
 };

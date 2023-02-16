@@ -17,6 +17,8 @@ import {
   getURLparams,
   loading,
   getUser,
+  loginBtn,
+  navMobile,
 } from "./common";
 
 let countries = [
@@ -50,8 +52,6 @@ let countries = [
   },
 ];
 
-let page = 1;
-
 let params = getURLparams();
 console.log(typeof params);
 
@@ -62,6 +62,8 @@ let genresId = params.with_genres;
 let getYear = params.primary_release_year;
 
 let getCountry = params.with_origin_country;
+
+let page = params.page;
 
 const isQuery = "q" in params;
 const isDay = "day" in params;
@@ -370,6 +372,7 @@ const nextBtn = () => {
   nextBtn.addEventListener("click", () => {
     page++;
     currentPage.innerHTML = page;
+
     backToTop();
     checkSearch();
   });
@@ -424,4 +427,6 @@ window.onload = () => {
   removeFilter();
   loading();
   getUser();
+  loginBtn();
+  navMobile();
 };

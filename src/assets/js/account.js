@@ -2,12 +2,25 @@ import "@assets/css/index.css";
 import "@assets/css/movie.css";
 import "@assets/css/search.css";
 import "@assets/css/person.css";
+import "@assets/css/account.css";
+import "@assets/css/responsiveIndex.css";
 
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import * as api from "./api.js";
+
+import { auth, db } from "./firebase.js";
+import {
+  getDoc,
+  setDoc,
+  collection,
+  doc,
+  arrayRemove,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 
 import {
   navSearchDesktop,
@@ -18,130 +31,17 @@ import {
   backToTop,
   loading,
   getUser,
+  loginBtn,
+  showWarningToast,
+  hasText,
+  MIN_LENGTH_PASS,
+  toggleShowPass,
+  showSuccessToast,
+  showInfoToast,
 } from "./common.js";
+import { onAuthStateChanged, updatePassword } from "firebase/auth";
 
-// const callApiMovies = async () => {
-//   await renderFavorites();
-//   await renderBookmarks();
-// };
-
-// const renderFavorites = async () => {
-//   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-//   const favoriteMovies = await Promise.all(
-//     favorites.map(async (id) => {
-//       const res = await fetch(
-//         `${api.base_url}${id}?` +
-//           new URLSearchParams({
-//             api_key: api.api_key,
-//           }) +
-//           api.language
-//       );
-//       const data = await res.json();
-//       return data;
-//     })
-//   );
-
-//   favoriteMovies.forEach((movie) => {
-//     makeCard(movie, "#nav__favorite-list");
-//   });
-
-//   const favoriteList = document.querySelector("#nav__favorite-list");
-//   const removeButton = document.createElement("button");
-//   removeButton.classList.add("btn", "btn-secondary", "btn__remove-list");
-
-//   const btnRemove = favoriteList.querySelectorAll(".btn-remove");
-//   console.log(btnRemove);
-//   btnRemove.forEach((item) => {
-//     item.addEventListener("click", () => {
-//       const parent = item.closest(".card");
-//       const id = parent.id;
-//       console.log(parent, id);
-//       let index = favorites.indexOf(id);
-//       if (index > -1) {
-//         favorites.splice(index, 1);
-//       }
-//       localStorage.setItem("favorites", JSON.stringify(favorites));
-//       favoriteList.removeChild(parent);
-//       if (favorites.length == 0) favoriteList.removeChild(removeButton);
-//     });
-//   });
-//   removeButton.innerHTML = `
-//     <i class="fa-regular fa-trash-can"></i>
-//       Xóa tất cả
-//   `;
-
-//   console.log(favoriteList.firstChild);
-//   removeButton.addEventListener("click", () => {
-//     localStorage.removeItem("favorites");
-//     while (favoriteList.firstChild) {
-//       favoriteList.removeChild(favoriteList.firstChild);
-//     }
-//   });
-//   if (favorites.length !== 0) favoriteList.appendChild(removeButton);
-// };
-
-// const renderBookmarks = async () => {
-//   const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-//   const bookmarkMovies = await Promise.all(
-//     bookmarks.map(async (id) => {
-//       const res = await fetch(
-//         `${api.base_url}${id}?` +
-//           new URLSearchParams({
-//             api_key: api.api_key,
-//           }) +
-//           api.language
-//       );
-//       const data = await res.json();
-//       return data;
-//     })
-//   );
-
-//   bookmarkMovies.forEach((movie) => {
-//     makeCard(movie, "#nav__bookmark-list");
-//   });
-
-//   const bookmarkList = document.querySelector("#nav__bookmark-list");
-//   const removeButton = document.createElement("button");
-//   removeButton.classList.add("btn", "btn-secondary", "btn__remove-list");
-
-//   const btnRemove = bookmarkList.querySelectorAll(".btn-remove");
-//   console.log(btnRemove);
-//   btnRemove.forEach((item) => {
-//     item.addEventListener("click", () => {
-//       const parent = item.closest(".card");
-//       const id = parent.id;
-//       console.log(parent, id);
-//       let index = bookmarks.indexOf(id);
-//       if (index > -1) {
-//         bookmarks.splice(index, 1);
-//       }
-//       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-//       bookmarkList.removeChild(parent);
-//       if (bookmarks.length == 0) bookmarkList.removeChild(removeButton);
-//     });
-//   });
-
-//   removeButton.innerHTML = `
-//     <i class="fa-regular fa-trash-can"></i>
-//       Xóa tất cả
-//   `;
-
-//   removeButton.addEventListener("click", () => {
-//     localStorage.removeItem("bookmarks");
-//     while (bookmarkList.firstChild) {
-//       bookmarkList.removeChild(bookmarkList.firstChild);
-//     }
-//   });
-//   if (bookmarks.length !== 0) bookmarkList.appendChild(removeButton);
-// };
-
-const callApiMovies = async () => {
-  await renderFavorites();
-  await renderBookmarks();
-};
-
-const renderList = async (storageKey, listId) => {
-  const items = JSON.parse(localStorage.getItem(storageKey)) || [];
+const render = async (items, listId, listName) => {
   const itemMovies = await Promise.all(
     items.map(async (id) => {
       const res = await fetch(
@@ -157,69 +57,159 @@ const renderList = async (storageKey, listId) => {
   );
 
   itemMovies.forEach((movie) => {
-    makeCard(movie, listId);
+    makeCard(movie, listId, listName);
   });
 
   const removeButton = document.createElement("button");
   removeButton.classList.add("btn", "btn-secondary", "btn__remove-list");
   removeButton.innerHTML = `
-    <i class="fa-regular fa-trash-can"></i>
-      Xóa tất cả
-  `;
+      <i class="fa-regular fa-trash-can"></i>
+        Xóa tất cả
+    `;
+  removeButton.addEventListener("click", async () => {
+    const user = auth.currentUser;
+    const listRef = doc(db, "users", user.uid);
+    const listData = (await getDoc(listRef)).data();
 
-  removeButton.addEventListener("click", () => {
-    localStorage.removeItem(storageKey);
-    while (list.firstChild) {
-      list.removeChild(list.firstChild);
+    // Check which list this button belongs to
+    let listKey;
+    if (listId === "#nav__favorite-list") {
+      listKey = "favorites";
+    } else if (listId === "#nav__bookmark-list") {
+      listKey = "bookmarks";
+    } else if (listId === "#nav__history-list") {
+      listKey = "history";
+    }
+    if (listData && listData[listKey] && listData[listKey].length > 0) {
+      // If the list exists, delete all items in it
+      await updateDoc(listRef, {
+        [listKey]: [],
+      });
+
+      // Remove all items from the list view
+      const list = document.querySelector(listId);
+      while (list.firstChild) {
+        list.removeChild(list.firstChild);
+      }
+
+      // Add a message to show that the list is empty
+      const p = document.createElement("p");
+      p.innerHTML = `Danh sách trống`;
+      list.appendChild(p);
     }
   });
-
+  // Add the remove button to the list if there are items in it
   const list = document.querySelector(listId);
-  if (items.length !== 0) list.appendChild(removeButton);
+  if (items.length !== 0) {
+    list.appendChild(removeButton);
+  }
 
-  const btnRemove = list.querySelectorAll(".btn-remove");
-  btnRemove.forEach((item) => {
-    item.addEventListener("click", () => {
-      const parent = item.closest(".card");
+  const btnRemoves = document.querySelectorAll(".btn-remove");
+  btnRemoves.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const parent = btn.closest(".card");
       const id = parent.id;
+      const listItem = document.querySelector(listId);
       let index = items.indexOf(id);
-      if (index > -1) {
+      if (index !== -1) {
         items.splice(index, 1);
-      }
-      localStorage.setItem(storageKey, JSON.stringify(items));
-      list.removeChild(parent);
-      if (items.length === 0) {
-        const p = document.createElement("p");
-        p.innerHTML = `Danh sách trống`;
-        list.removeChild(removeButton);
-        if (items.length === 0) {
-          const p = document.createElement("p");
-          p.innerHTML = `Danh sách trống!`;
-          list.appendChild(p);
+        const list = parent.dataset.list;
+        if (listItem.contains(parent)) {
+          listItem.removeChild(parent);
         }
+        const user = auth.currentUser;
+        console.log(user);
+        if (user) {
+          const userId = user.uid;
+          const listRef = doc(db, "users", userId);
+          const docSnap = await getDoc(listRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            const favorites = data.favorites || [];
+            const bookmarks = data.bookmarks || [];
+            const history = data.history || [];
+
+            if (list === "favorites") {
+              favorites.splice(favorites.indexOf(id), 1);
+              await updateDoc(listRef, { favorites });
+            } else if (list === "bookmarks") {
+              bookmarks.splice(bookmarks.indexOf(id), 1);
+              await updateDoc(listRef, { bookmarks });
+            } else if (list === "history") {
+              history.splice(history.indexOf(id), 1);
+              await updateDoc(listRef, { history });
+            }
+          }
+        }
+      }
+      if (items.length === 0) {
+        const list = document.querySelector(listId);
+        const p = document.createElement("p");
+        p.innerHTML = `Danh sách trống!`;
+        list.removeChild(removeButton);
+        list.appendChild(p);
       }
     });
   });
-  if (items.length === 0) {
+
+  if (items.length == 0) {
+    // If the list is empty, add a message to show that
     const p = document.createElement("p");
     p.innerHTML = `Danh sách trống!`;
     list.appendChild(p);
   }
 };
 
-const renderFavorites = async () => {
-  await renderList("favorites", "#nav__favorite-list");
+const renderListFirebase = async () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const userId = user.uid;
+      const userInfo = (user) => {
+        const dateJoin = new Date(
+          user.metadata.creationTime
+        ).toLocaleDateString("vi", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        });
+        const date = document.querySelector(".join__date");
+        date.innerHTML = dateJoin;
+        const email = document.querySelector(".user__email");
+        email.innerHTML = user.email;
+        const userName = document.querySelector(".user__name");
+        userName.innerHTML = `<h1>${user.displayName}</h1>`;
+      };
+      userInfo(user);
+      const listRef = doc(db, "users", userId);
+      getDoc(listRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const favorites = docSnap.data().favorites;
+          render(favorites, "#nav__favorite-list", "favorites");
+
+          const bookmarks = docSnap.data().bookmarks;
+          render(bookmarks, "#nav__bookmark-list", "bookmarks");
+
+          const history = docSnap.data().history;
+          render(history, "#nav__history-list", "history");
+        }
+      });
+      changePass();
+    } else {
+      console.log("not user");
+    }
+  });
 };
 
-const renderBookmarks = async () => {
-  await renderList("bookmarks", "#nav__bookmark-list");
-};
-
-const makeCard = (data, listId) => {
+const makeCard = (data, listId, listName) => {
   const list = document.querySelector(listId);
   const date = new Date(data.release_date);
   const localDate = date.toLocaleDateString("vi");
 
+  if (!list) {
+    return; // return early if the list is not found
+  }
   const isOverview = () => {
     if (data.overview != "") {
       return data.overview;
@@ -241,7 +231,7 @@ const makeCard = (data, listId) => {
   });
 
   list.innerHTML += `
-  <div class="card m-3" id="${data.id}">
+  <div class="card m-3" id="${data.id}" data-list="${listName}">
     <div class="row g-0">
         <div class="col-4">
             <a href="./movie.html?${data.id}" title="${data.title}">
@@ -273,13 +263,55 @@ const makeCard = (data, listId) => {
   `;
 };
 
+const changePass = () => {
+  const user = auth.currentUser;
+  hiddenShowForm();
+  toggleShowPass();
+  hasText();
+
+  const btnSave = document.querySelector(".login__btn-save").firstElementChild;
+  console.log(btnSave);
+  btnSave.addEventListener("click", (e) => {
+    const pass = document.querySelector("#new__password").value;
+    e.preventDefault();
+    if (pass >= MIN_LENGTH_PASS) {
+      updatePassword(user, pass)
+        .then(() => {
+          showSuccessToast("Đổi mật khẩu thành công!");
+        })
+        .catch((err) => {
+          showInfoToast("Chức năng đang được hoàn thiện!");
+        });
+    } else {
+      showWarningToast("Đã xảy ra lỗi");
+    }
+  });
+};
+
+const hiddenShowForm = () => {
+  const showChange = document.querySelector(".btn__changePassword");
+  const btnCancer = document.querySelector(".login__btn-cancel");
+  const input = document.querySelector("#new__password");
+
+  showChange.addEventListener("click", () => {
+    showChange.nextElementSibling.classList.toggle("d-none");
+  });
+
+  btnCancer.addEventListener("click", () => {
+    btnCancer.closest(".changePassword__form").classList.add("d-none");
+    input.value = "";
+    input.style.border = "0";
+  });
+};
+
 window.onload = () => {
-  callApiMovies();
+  renderListFirebase();
   navSearchDesktop();
   navSearchMobile();
   navMobile();
   headerOnTop();
-  selectedHash();
+  loginBtn();
   loading();
   getUser();
+  selectedHash();
 };

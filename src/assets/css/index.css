@@ -745,6 +745,7 @@ input[type=checkbox]:checked::before {
     height: 100%;
     background: #16171d;
     opacity: .9;
+    top: 0;
     position: fixed;
     z-index: 1000;
 }

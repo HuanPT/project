@@ -1,10 +1,3 @@
-// import "@lib/jquery-3.6.1.min.js";
-
-import "@lib/Owlcarousel2/owl.carousel.min.js";
-
-// import 'owl.carousel2/dist/assets/owl.carousel.css';
-// import $ from 'jquery';
-// import 'imports?jQuery=jquery!owl.carousel';
 
 export let carousel = () => {
   $(document).ready(function () {

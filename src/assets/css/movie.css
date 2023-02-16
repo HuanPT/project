@@ -245,6 +245,10 @@
     color: var(--orange-color);
 }
 
+.wrap-iframes {
+    margin-bottom: 1rem;
+}
+
 .wrap-iframes .item {
     display: grid;
     gap: 1rem;
@@ -397,6 +401,8 @@
     color: var(--gray-color);
     text-decoration: none;
     transition: all .2s;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .btn__changePassword:hover {

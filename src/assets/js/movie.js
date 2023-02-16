@@ -10,6 +10,7 @@ import {
   setDoc,
   collection,
   doc,
+  arrayRemove,
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
@@ -17,9 +18,9 @@ import {
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
+import "@lib/Owlcarousel2/owl.carousel.min.js";
 
 import * as api from "./api.js";
-import * as customCarousel from "./customCarousel.js";
 
 import {
   navSearchDesktop,
@@ -28,6 +29,9 @@ import {
   headerOnTop,
   loading,
   getUser,
+  loginBtn,
+  showWarningToast,
+  recommendations,
 } from "./common.js";
 
 let movieId = location.search.replace("?", "");
@@ -38,7 +42,7 @@ const formatString = (currentIndex, maxIndex) => {
 };
 
 const callApiMovie = (movieId) => {
-  fetch(
+  return fetch(
     `${api.base_url}${movieId}?` +
       new URLSearchParams({
         api_key: api.api_key,
@@ -60,8 +64,11 @@ const setupMovieInfo = (data, movieId) => {
   movieName(data);
   movieInfo(data);
   iconPlay(data);
-  favorite(movieId);
-  bookmark(movieId);
+  // favorite(movieId);
+  // bookmark(movieId);
+
+  addToFavorites(movieId);
+  addToBookmarks(movieId);
 };
 
 const createImgSmall = (data) => {
@@ -139,7 +146,6 @@ const movieName = (data) => {
 
 const iconPlay = (data) => {
   const filmInfo = document.querySelector(".film__info-img");
-  console.log(filmInfo);
   const a = document.createElement("a");
   a.href = `./watch.html?${data.id}`;
   a.classList.add("icon-play", "d-none", "d-sm-block");
@@ -336,157 +342,222 @@ const callApiTrailer = () => {
     });
 };
 
-// fetch recommendations
-const recommendations = () => {
-  fetch(
-    `${api.base_url}${movieId}/recommendations?` +
-      new URLSearchParams({
-        api_key: api.api_key,
-      }) +
-      api.language
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      const container = document.querySelector(".recommendations-container");
-      const result = data.results;
-      const slide = document.createElement("div");
-      slide.classList.add("owl-carousel", "owl-theme", "nominated-slide");
-      const length = result.length;
-      if (length == 0) {
-        const overview = document.createElement("div");
-        overview.classList.add("overview");
+// const favorite = (movieId) => {
+//   const favoriteBtn = document.querySelector(".favorite");
+//   const addFavorite = favoriteBtn.querySelector(".add__favorite");
+//   const des = favoriteBtn.querySelector(".des");
+//   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-        container.appendChild(overview);
-        overview.innerHTML = `
-        <p>Chưa có đề xuất cho bạn.</p>
-      `;
-      } else if (length < 10) {
-        for (let i = 0; i < length; i++) {
-          if (result[i].backdrop_path !== null) {
-            slide.innerHTML += `
-          <div class="item">
-            <div class="card__movie">
-              <a href="/movie.html?${result[i].id}">
-                <img src="${api.imgUrlW533}${result[i].backdrop_path}" alt="${result[i].title}">
-                <p class="movie-title">${result[i].title}</p>
-                <div class="icon-play">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        `;
-          }
-        }
-      } else {
-        for (let i = 0; i < 10; i++) {
-          if (result[i].backdrop_path !== null) {
-            slide.innerHTML += `
-          <div class="item">
-            <div class="card__movie">
-              <a href="/movie.html?${result[i].id}">
-                <img src="${api.imgUrlW533}${result[i].backdrop_path}" alt="${result[i].title}">
-                <p class="movie-title">${result[i].title}</p>
-                <div class="icon-play">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        `;
-          }
-        }
-      }
-      container.append(slide);
-      customCarousel.carousel(data);
-    });
-};
+//   const toggleFavorite = () => {
+//     addFavorite.classList.toggle("d-none");
+//     let isFavorite = !addFavorite.classList.contains("d-none");
 
-const favorite = (movieId) => {
+//     if (isFavorite) {
+//       des.innerHTML = "Xóa khỏi yêu thích";
+//       favorites.push(movieId);
+//     } else {
+//       des.innerHTML = "Thêm vào yêu thích";
+//       let index = favorites.indexOf(movieId);
+//       if (index > -1) {
+//         favorites.splice(index, 1);
+//       }
+//     }
+//     localStorage.setItem("favorites", JSON.stringify(favorites));
+//   };
+
+//   if (favorites.includes(movieId)) {
+//     addFavorite.classList.remove("d-none");
+//     des.innerHTML = "Xóa khỏi yêu thích";
+//   } else {
+//     addFavorite.classList.add("d-none");
+//   }
+
+//   favoriteBtn.addEventListener("click", toggleFavorite);
+// };
+
+// const bookmark = (movieId) => {
+//   const bookmarkBtn = document.querySelector(".bookmark");
+//   const addBookmark = bookmarkBtn.querySelector(".add__bookmark");
+//   const des = bookmarkBtn.querySelector(".des");
+//   let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+//   const toggleBookmark = () => {
+//     addBookmark.classList.toggle("d-none");
+//     let isBookmark = !addBookmark.classList.contains("d-none");
+
+//     if (isBookmark) {
+//       des.innerHTML = "Xóa khỏi danh sách xem";
+//       bookmarks.push(movieId);
+//     } else {
+//       des.innerHTML = "Thêm vào danh sách xem";
+//       let index = bookmarks.indexOf(movieId);
+//       if (index > -1) {
+//         bookmarks.splice(index, 1);
+//       }
+//     }
+//     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+//   };
+
+//   if (bookmarks.includes(movieId)) {
+//     addBookmark.classList.remove("d-none");
+//     des.innerHTML = "Xóa khỏi danh sách xem";
+//   } else {
+//     addBookmark.classList.add("d-none");
+//   }
+
+//   bookmarkBtn.addEventListener("click", toggleBookmark);
+// };
+
+const addToFavorites = (id) => {
   const favoriteBtn = document.querySelector(".favorite");
   const addFavorite = favoriteBtn.querySelector(".add__favorite");
   const des = favoriteBtn.querySelector(".des");
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  const toggleFavorite = () => {
-    addFavorite.classList.toggle("d-none");
-    let isFavorite = !addFavorite.classList.contains("d-none");
-
-    if (isFavorite) {
-      des.innerHTML = "Xóa khỏi yêu thích";
-      favorites.push(movieId);
-    } else {
-      des.innerHTML = "Thêm vào yêu thích";
-      let index = favorites.indexOf(movieId);
-      if (index > -1) {
-        favorites.splice(index, 1);
-      }
+  auth.onAuthStateChanged((user) => {
+    if (!user) {
+      favoriteBtn.addEventListener("click", () => {
+        showWarningToast("", "Bạn chưa đăng nhập!");
+      });
+      return;
     }
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  };
 
-  if (favorites.includes(movieId)) {
-    addFavorite.classList.remove("d-none");
-    des.innerHTML = "Xóa khỏi yêu thích";
-  } else {
-    addFavorite.classList.add("d-none");
-  }
+    console.log(user);
 
-  favoriteBtn.addEventListener("click", toggleFavorite);
+    const toggle = () => {
+      addFavorite.classList.toggle("d-none");
+      let isFavorite = !addFavorite.classList.contains("d-none");
+      if (isFavorite) {
+        des.innerHTML = "Xóa khỏi yêu thích";
+        addMovieToFavorites(user.uid, id);
+      } else {
+        des.innerHTML = "Thêm vào yêu thích";
+        removeMovieFromFavorites(user.uid, id);
+      }
+    };
+
+    const addMovieToFavorites = (userId, movieId) => {
+      const favoritesRef = doc(db, "users", userId);
+      getDoc(favoritesRef).then((doc) => {
+        if (doc.exists()) {
+          updateDoc(favoritesRef, {
+            favorites: arrayUnion(movieId),
+          });
+        } else {
+          setDoc(
+            favoritesRef,
+            {
+              favorites: [movieId],
+            },
+            { merge: true }
+          );
+        }
+      });
+    };
+
+    const removeMovieFromFavorites = (userId, movieId) => {
+      const favoritesRef = doc(db, "users", userId);
+      updateDoc(favoritesRef, {
+        favorites: arrayRemove(movieId),
+      });
+    };
+
+    const getFavorites = (userId) => {
+      const favoritesRef = doc(db, "users", userId);
+      getDoc(favoritesRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const favorites = docSnap.data().favorites;
+          console.log(favorites); // this will log the favorites array
+          if (favorites.includes(id)) {
+            addFavorite.classList.remove("d-none");
+            des.innerHTML = "Xóa khỏi yêu thích";
+          } else {
+            addFavorite.classList.add("d-none");
+          }
+        } else {
+          console.log("No favorites found for user", userId);
+        }
+      });
+    };
+
+    getFavorites(user.uid);
+    favoriteBtn.addEventListener("click", toggle);
+  });
 };
 
-const bookmark = (movieId) => {
+const addToBookmarks = (id) => {
   const bookmarkBtn = document.querySelector(".bookmark");
   const addBookmark = bookmarkBtn.querySelector(".add__bookmark");
-  let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
   const des = bookmarkBtn.querySelector(".des");
 
-  const toggleBookmark = () => {
-    addBookmark.classList.toggle("d-none");
-    let isBookmark = !addBookmark.classList.contains("d-none");
-
-    if (isBookmark) {
-      des.innerHTML = "Xóa khỏi danh sách xem";
-      bookmarks.push(movieId);
-    } else {
-      des.innerHTML = "Thêm vào danh sách xem";
-      let index = bookmarks.indexOf(movieId);
-      if (index > -1) {
-        bookmarks.splice(index, 1);
-      }
+  auth.onAuthStateChanged((user) => {
+    if (!user) {
+      bookmarkBtn.addEventListener("click", () => {
+        showWarningToast("", "Bạn chưa đăng nhập!");
+      });
+      return;
     }
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  };
 
-  if (bookmarks.includes(movieId)) {
-    addBookmark.classList.remove("d-none");
-    des.innerHTML = "Xóa khỏi danh sách xem";
-  } else {
-    addBookmark.classList.add("d-none");
-  }
+    console.log(user);
 
-  bookmarkBtn.addEventListener("click", toggleBookmark);
+    const toggle = () => {
+      addBookmark.classList.toggle("d-none");
+      let isBookmark = !addBookmark.classList.contains("d-none");
+      if (isBookmark) {
+        des.innerHTML = "Xóa khỏi danh sách xem";
+        addMovieToBookmarks(user.uid, id);
+      } else {
+        des.innerHTML = "Thêm vào danh sách xem";
+        removeMovieFromBookmarks(user.uid, id);
+      }
+    };
+
+    const addMovieToBookmarks = (userId, movieId) => {
+      const bookmarksRef = doc(db, "users", userId);
+      getDoc(bookmarksRef).then((doc) => {
+        if (doc.exists()) {
+          updateDoc(bookmarksRef, {
+            bookmarks: arrayUnion(movieId),
+          });
+        } else {
+          setDoc(
+            bookmarksRef,
+            {
+              bookmarks: [movieId],
+            },
+            { merge: true }
+          );
+        }
+      });
+    };
+
+    const removeMovieFromBookmarks = (userId, movieId) => {
+      const bookmarksRef = doc(db, "users", userId);
+      updateDoc(bookmarksRef, {
+        bookmarks: arrayRemove(movieId),
+      });
+    };
+
+    const getBookmarks = (userId) => {
+      const bookmarksRef = doc(db, "users", userId);
+      getDoc(bookmarksRef).then((docSnap) => {
+        if (docSnap.exists()) {
+          const bookmarks = docSnap.data().bookmarks;
+          console.log(bookmarks); // this will log the favorites array
+          if (bookmarks.includes(id)) {
+            addBookmark.classList.remove("d-none");
+            des.innerHTML = "Xóa khỏi danh sách xem";
+          } else {
+            addBookmark.classList.add("d-none");
+          }
+        } else {
+          console.log("No favorites found for user", userId);
+        }
+      });
+    };
+
+    getBookmarks(user.uid);
+    bookmarkBtn.addEventListener("click", toggle);
+  });
 };
-
-// const isUser = () => {
-//   auth.onAuthStateChanged((user) => {
-//     if (!user) {
-//       console.log("User is not logged in.");
-//       return;
-//     }
-
-//     const userId = user.uid;
-//     const addMovieToFavorites = (userId, movieId) => {
-//       const favoritesRef = doc(db, "users", userId);
-//       updateDoc(favoritesRef, {
-//         favorites: arrayUnion(movieId),
-//       });
-//     };
-
-//     addMovieToFavorites(userId, movieId);
-//     console.log(user);
-//   });
-// };
 
 window.onload = () => {
   callApiMovie(movieId);
@@ -497,7 +568,7 @@ window.onload = () => {
   headerOnTop();
   callApiTrailer();
   loading();
-  recommendations();
+  recommendations(movieId, "similar");
   getUser();
-  // isUser();
+  loginBtn();
 };

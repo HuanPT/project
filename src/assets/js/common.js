@@ -1,14 +1,19 @@
+import * as customCarousel from "./customCarousel.js";
+import * as api from "./api.js";
+
 import { auth, db } from "./firebase.js";
 import { getDocs, collection, doc } from "firebase/firestore";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
+export const MIN_LENGTH_PASS = 6;
+
 export const navSearchDesktop = () => {
   const inputDesktop = document.querySelector("#search__desktop");
-  console.log(inputDesktop);
+  // console.log(inputDesktop);
   inputDesktop.addEventListener("change", (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(e.keycode);
+    // console.log(e.target.value);
+    // console.log(e.keycode);
     if (e.target.value !== "") {
       window.location.href = `./search.html?q=${e.target.value}`;
     }
@@ -19,7 +24,7 @@ export const navSearchMobile = () => {
   const inputMobile = document.querySelector("#search__mobile");
   inputMobile.addEventListener("blur", (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value !== "") {
       window.location.href = `./search.html?q=${e.target.value}`;
     }
@@ -84,7 +89,7 @@ export function headerOnTop() {
 export function getURLparams() {
   let params = {};
   let query = location.search.substring(1);
-  console.log(query);
+  // console.log(query);
   let vars = query.split("&");
   for (let i = 0; i < vars.length; i++) {
     let pair = vars[i].split("=");
@@ -99,10 +104,86 @@ export function getURLparams() {
 
 export const selectedHash = () => {
   let hash = location.hash.substring(1);
-  console.log(hash);
+  // console.log(hash);
   const getHash = document.getElementById(hash);
   getHash.click();
   backToTop();
+};
+
+export const toggleShowPass = () => {
+  const has = document.querySelectorAll(".has__password-toggle");
+
+  has.forEach((item) => {
+    const toggle = item.querySelector(".btn__password-toggle");
+    const input = item.querySelector("input");
+    const txtErr = item.nextElementSibling;
+    hasText();
+
+    input.addEventListener("focus", (e) => {
+      e.preventDefault();
+      toggle.classList.toggle("d-none");
+    });
+
+    input.addEventListener("change", (e) => {
+      e.preventDefault();
+      const length = e.target.value.trim().length;
+      if (length < MIN_LENGTH_PASS) {
+        input.style.border = "0.2rem solid #e87c03";
+        txtErr.innerText = `Mật khẩu phải có độ dài ít nhất ${MIN_LENGTH_PASS} ký tự.`;
+      } else {
+        input.style.border = "";
+        txtErr.innerText = "";
+      }
+    });
+
+    input.addEventListener("blur", (e) => {
+      e.preventDefault();
+      if (!e.target.value.trim()) {
+        e.target.value = "";
+        input.style.border = "";
+        txtErr.innerText = "";
+      }
+    });
+
+    toggle.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      toggle.innerText == "Hiện"
+        ? setTimeout(() => {
+            toggle.innerText = "Ẩn";
+            input.type = "text";
+            input.focus();
+          }, 100)
+        : toggle.innerText == "Ẩn"
+        ? setTimeout(() => {
+            toggle.innerText = "Hiện";
+            input.type = "password";
+            input.focus();
+          }, 100)
+        : undefined;
+    });
+
+    input.addEventListener("blur", (e) => {
+      e.preventDefault();
+      toggle.innerText = "Hiện";
+      input.type = "password";
+      toggle.classList.toggle("d-none");
+    });
+  });
+};
+
+export const hasText = () => {
+  const input = document.querySelectorAll(".input-tag");
+
+  input.forEach((item) => {
+    const parent = item.closest(".label__input");
+
+    if (item.value) parent.classList.add("has-txt");
+
+    item.addEventListener("change", (e) => {
+      if (e.target.value) parent.classList.add("has-txt");
+      else parent.classList.remove("has-txt");
+    });
+  });
 };
 
 function toast({ title = "", message = "", type = "info", duration = 3000 }) {
@@ -201,7 +282,7 @@ export const getUser = () => {
   const hasUserD = document.querySelector(".header__nav-user");
   const notUsers = document.querySelectorAll(".header__login");
   auth.onAuthStateChanged((user) => {
-    console.log(user);
+    // console.log(user);
     if (user !== null) {
       notUsers.forEach((item) => {
         item.style.display = "none";
@@ -211,7 +292,7 @@ export const getUser = () => {
       userName.innerHTML = `<h3>Chào ${user.displayName}!</h3>`;
       const btnLogouts = document.querySelectorAll(".logout");
       btnLogouts.forEach((item) => {
-        console.log(item);
+        // console.log(item);
         item.addEventListener("click", (e) => {
           e.preventDefault();
           signOut(auth)
@@ -233,4 +314,80 @@ export const getUser = () => {
       hasUserD.classList.remove("d-flex");
     }
   });
+};
+
+export const loginBtn = () => {
+  const btns = document.querySelectorAll(".header__login");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "/#login";
+    });
+  });
+};
+
+// fetch recommendations
+export const recommendations = (id, keyWord) => {
+  return fetch(
+    `${api.base_url}${id}/${keyWord}?` +
+      new URLSearchParams({
+        api_key: api.api_key,
+      }) +
+      api.language
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const container = document.querySelector(".recommendations-container");
+      const result = data.results;
+      const slide = document.createElement("div");
+      slide.classList.add("owl-carousel", "owl-theme", "nominated-slide");
+      const length = result.length;
+      if (length == 0) {
+        const overview = document.createElement("div");
+        overview.classList.add("overview");
+
+        container.appendChild(overview);
+        overview.innerHTML = `
+        <p>Chưa có đề xuất cho bạn.</p>
+      `;
+      } else if (length < 10) {
+        for (let i = 0; i < length; i++) {
+          if (result[i].backdrop_path !== null) {
+            slide.innerHTML += `
+          <div class="item">
+            <div class="card__movie">
+              <a href="/movie.html?${result[i].id}">
+                <img src="${api.imgUrlW533}${result[i].backdrop_path}" alt="${result[i].title}">
+                <p class="movie-title">${result[i].title}</p>
+                <div class="icon-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        `;
+          }
+        }
+      } else {
+        for (let i = 0; i < 10; i++) {
+          if (result[i].backdrop_path !== null) {
+            slide.innerHTML += `
+          <div class="item">
+            <div class="card__movie">
+              <a href="/movie.html?${result[i].id}">
+                <img src="${api.imgUrlW533}${result[i].backdrop_path}" alt="${result[i].title}">
+                <p class="movie-title">${result[i].title}</p>
+                <div class="icon-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        `;
+          }
+        }
+      }
+      container.append(slide);
+      customCarousel.carousel(data);
+    });
 };

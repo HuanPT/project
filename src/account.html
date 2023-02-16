@@ -18,195 +18,195 @@
 </head>
 
 <body>
-<div id="toast"></div>
-<div class="loading">
-    <div>
-        <div class="c1"></div>
-        <div class="c2"></div>
-        <div class="c3"></div>
-        <div class="c4"></div>
+    <div id="toast"></div>
+    <div class="loading">
+        <div>
+            <div class="c1"></div>
+            <div class="c2"></div>
+            <div class="c3"></div>
+            <div class="c4"></div>
+        </div>
     </div>
-</div>
 
-<header class="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 d-md-none heade__Mobile">
-                <div class="header__top-wrap">
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-md-none heade__Mobile">
+                    <div class="header__top-wrap">
 
-                    <div class="header__search">
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <div class="header__search">
+                            <div class="dropdown">
+                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <label class="input-tag">
+                                        <input type="text" id="search__mobile">
+                                        <span class="place">
+                                            Tìm kiếm
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header__top-logo">
+                            <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
+                        </div>
+
+                        <div class="header__login">
+                            <button type="button" class="btn btn-red">Đăng nhập</button>
+                        </div>
+                        <div class="header__navbars">
+
+                            <div class="btn__navbars">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+
+                            <div class="navbars__mobile-detail hidden">
+                                <div class="overlay"></div>
+                                <div class="navbars__mobile-wrap">
+                                    <div class="navbars__mobile-header">
+                                        <div class="mobile__user-name">
+                                            <h3>Chào HuanPT!</h3>
+                                            <div class="user__name-avatar">
+                                                <i class="fa-solid fa-user"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="navbars__mobile-main">
+                                        <ul class="navbars__mobile-list">
+                                            <li>
+                                                <a href="./account.html#nav__profile-tab" class="user-menu-item">
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                    Tài khoản
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="./account.html#nav__favorite-tab" class="user-menu-item">
+                                                    <i class="fa-solid fa-heart"></i>
+                                                    Phim yêu thích
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="./account.html#nav__bookmark-tab" class="user-menu-item">
+                                                    <i class="fa-solid fa-bookmark"></i>
+                                                    Phim đã lưu
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="./account.html#nav__history-tab" class="user-menu-item">
+                                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                                    Lịch sử xem</a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="user-menu-item logout">
+                                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    Đăng xuất
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/search.html?day" class="user-menu-item">
+                                                    Phim hot ngày
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/search.html?week" class="user-menu-item">
+                                                    Phim hot tuần
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/search.html?latest" class="user-menu-item">
+                                                    Phổ biến
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 d-none d-md-block header__desktop">
+                    <div class="header__top-wrap">
+                        <div class="header__top-logo">
+                            <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
+                        </div>
+
+                        <div class="header__center d-flex">
+                            <ul class="header__center-menu d-flex">
+                                <li class="center-menu-item">
+                                    <a href="/search.html?day">Phim hot ngày</a>
+                                </li>
+                                <li class="center-menu-item">
+                                    <a href="/search.html?week">Phim hot tuần</a>
+                                </li>
+                                <li class="center-menu-item">
+                                    <a href="/search.html?latest">Phổ biến</a>
+                                </li>
+                            </ul>
+
+                            <div class="header__center-search">
                                 <label class="input-tag">
-                                    <input type="text" id="search__mobile">
+                                    <input type="text" id="search__desktop">
                                     <span class="place">
                                         Tìm kiếm
                                     </span>
                                 </label>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="header__top-logo">
-                        <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
-                    </div>
-
-                    <div class="header__login">
-                        <button type="button" class="btn btn-red">Đăng nhập</button>
-                    </div>
-                    <div class="header__navbars">
-
-                        <div class="btn__navbars">
-                            <i class="fa-solid fa-bars"></i>
+                        <div class="header__login">
+                            <button type="button" class="btn btn-red">Đăng nhập</button>
                         </div>
+                        <div class="header__nav-user">
+                            <i class="user-icon fa-solid fa-user"></i>
 
-                        <div class="navbars__mobile-detail hidden">
-                            <div class="overlay"></div>
-                            <div class="navbars__mobile-wrap">
-                                <div class="navbars__mobile-header">
-                                    <div class="mobile__user-name">
-                                        <h3>Chào HuanPT!</h3>
-                                        <div class="user__name-avatar">
-                                            <i class="fa-solid fa-user"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="navbars__mobile-main">
-                                    <ul class="navbars__mobile-list">
-                                        <li>
-                                            <a href="./account.html#nav__profile-tab" class="user-menu-item">
-                                                <i class="fa-solid fa-circle-info"></i>
-                                                Tài khoản
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="./account.html#nav__favorite-tab" class="user-menu-item">
-                                                <i class="fa-solid fa-heart"></i>
-                                                Phim yêu thích
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="./account.html#nav__bookmark-tab" class="user-menu-item">
-                                                <i class="fa-solid fa-bookmark"></i>
-                                                Phim đã lưu
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="./account.html#nav__history-tab" class="user-menu-item">
-                                                <i class="fa-solid fa-clock-rotate-left"></i>
-                                                Lịch sử xem</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="user-menu-item logout">
-                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                                Đăng xuất
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/search.html?day" class="user-menu-item">
-                                                Phim hot ngày
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/search.html?week" class="user-menu-item">
-                                                Phim hot tuần
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/search.html?latest" class="user-menu-item">
-                                                Phổ biến
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="header__nav-wrap">
+                                <div class="triangle"></div>
+                                <ul class="nav-user-menu">
+                                    <li>
+                                        <a class="user-menu-item" href="./account.html#nav__profile-tab"><i
+                                                class="fa-solid fa-circle-info"></i>
+                                            Tài khoản
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./account.html#nav__favorite-tab" class="user-menu-item">
+                                            <i class="fa-solid fa-heart"></i>
+                                            Phim yêu thích
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="user-menu-item" href="./account.html#nav__bookmark-tab"><i
+                                                class="fa-solid fa-bookmark"></i>
+                                            Phim đã lưu
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="user-menu-item" href="./account.html#nav__history-tab"><i
+                                                class="fa-solid fa-clock-rotate-left"></i>
+                                            Lịch sử xem
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="user-menu-item logout"><i
+                                                class="fa-solid fa-right-from-bracket"></i>
+                                            Đăng xuất
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 d-none d-md-block header__desktop">
-                <div class="header__top-wrap">
-                    <div class="header__top-logo">
-                        <a href="./home.html"><img src="./assets/img/paner.png" alt="logo"></a>
-                    </div>
-
-                    <div class="header__center d-flex">
-                        <ul class="header__center-menu d-flex">
-                            <li class="center-menu-item">
-                                <a href="/search.html?day">Phim hot ngày</a>
-                            </li>
-                            <li class="center-menu-item">
-                                <a href="/search.html?week">Phim hot tuần</a>
-                            </li>
-                            <li class="center-menu-item">
-                                <a href="/search.html?latest">Phổ biến</a>
-                            </li>
-                        </ul>
-
-                        <div class="header__center-search">
-                            <label class="input-tag">
-                                <input type="text" id="search__desktop">
-                                <span class="place">
-                                    Tìm kiếm
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="header__login">
-                        <button type="button" class="btn btn-red">Đăng nhập</button>
-                    </div>
-                    <div class="header__nav-user">
-                        <i class="user-icon fa-solid fa-user"></i>
-
-                        <div class="header__nav-wrap">
-                            <div class="triangle"></div>
-                            <ul class="nav-user-menu">
-                                <li>
-                                    <a class="user-menu-item" href="./account.html#nav__profile-tab"><i
-                                            class="fa-solid fa-circle-info"></i>
-                                        Tài khoản
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./account.html#nav__favorite-tab" class="user-menu-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                        Phim yêu thích
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="user-menu-item" href="./account.html#nav__bookmark-tab"><i
-                                            class="fa-solid fa-bookmark"></i>
-                                        Phim đã lưu
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="user-menu-item" href="./account.html#nav__history-tab"><i
-                                            class="fa-solid fa-clock-rotate-left"></i>
-                                        Lịch sử xem
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="user-menu-item logout"><i
-                                            class="fa-solid fa-right-from-bracket"></i>
-                                        Đăng xuất
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <div class="main">
         <div class="container">
@@ -231,15 +231,15 @@
                                 </button>
                                 <button class="nav-link" id="nav__favorite-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav__favorite-list" type="button" role="tab"
-                                    aria-controls="nav__favorite-list" aria-selected="false">Favorite
+                                    aria-controls="nav__favorite-list" aria-selected="false">Danh sách Yêu thích
                                 </button>
                                 <button class="nav-link" id="nav__bookmark-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav__bookmark-list" type="button" role="tab"
-                                    aria-controls="nav__bookmark-list" aria-selected="false">Bookmark
+                                    aria-controls="nav__bookmark-list" aria-selected="false">Danh sách xem
                                 </button>
                                 <button class="nav-link" id="nav__history-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav__history-list" type="button" role="tab"
-                                    aria-controls="nav__history-list" aria-selected="false">History</button>
+                                    aria-controls="nav__history-list" aria-selected="false">Lịch sử xem</button>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -247,16 +247,16 @@
                                 aria-labelledby="nav__profile-tab">
                                 <ul class="user__profile-list">
                                     <li>
-                                        <p>Ngày gia nhập: <b>05/09/2021 19:02</b></p>
+                                        <p>Ngày gia nhập: <b class="join__date">05/09/2021 19:02</b></p>
 
                                     </li>
                                     <li>
-                                        <p>email: <b>test@gmail.com</b></p>
+                                        <p>email: <b class="user__email">test@gmail.com</b></p>
                                     </li>
                                     <li>
-                                        <a href="#" class="btn__changePassword">Đổi mật khẩu</a>
+                                        <a class="btn__changePassword">Đổi mật khẩu</a>
 
-                                        <form class="createPassword__form d-none login__item">
+                                        <form class="changePassword__form d-none login__item">
                                             <div class="password__group  login__input-group">
                                                 <div class="wrap__label has__password-toggle">
                                                     <label class="label__input">
@@ -266,9 +266,10 @@
                                                             Mật khẩu
                                                         </span>
                                                     </label>
-                                                    <button type="button" class="btn btn__password-toggle">Hiện</button>
+                                                    <button type="button"
+                                                        class="btn btn__password-toggle d-none">Hiện</button>
                                                 </div>
-                                                <span class="input-error">Email chưa chính xác</span>
+                                                <span class="input-error"></span>
 
                                             </div>
                                             <div class="password__group  login__input-group">
@@ -281,9 +282,10 @@
                                                             Xác nhận mật khẩu
                                                         </span>
                                                     </label>
-                                                    <button type="button" class="btn btn__password-toggle">Hiện</button>
+                                                    <button type="button"
+                                                        class="btn btn__password-toggle d-none">Hiện</button>
                                                 </div>
-                                                <span class="input-error">Email chưa chính xác</span>
+                                                <span class="input-error"></span>
                                             </div>
                                             <div class="list__button">
                                                 <div class="login__btn login__btn-save">
@@ -300,7 +302,7 @@
                             </div>
                             <div class="tab-pane fade" id="nav__favorite-list" role="tabpanel"
                                 aria-labelledby="nav__favorite-tab">
-                                
+
                             </div>
                             <div class="tab-pane fade" id="nav__bookmark-list" role="tabpanel"
                                 aria-labelledby="nav__bookmark-tab">
@@ -324,70 +326,73 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer-title">
-                            <a href="#">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
+                            <a>Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
                         </div>
                     </div>
                 </div>
                 <ul class="row">
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Câu hỏi thường gặp</a>
+                        <a>Câu hỏi thường gặp</a>
                     </li>
-
+    
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Trung tâm trợ giúp</a>
+                        <a>Trung tâm trợ giúp</a>
                     </li>
-
+    
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Tài khoản</a>
-                    </li>
-                    <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Trung tâm đa phương tiện</a>
+                        <a>Tài khoản</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Quan hệ với nhà đầu tư</a>
+                        <a>Trung tâm đa phương tiện</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Việc làm</a>
+                        <a>Quan hệ với nhà đầu tư</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Các cách xem</a>
+                        <a>Việc làm</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Điều khoản sử dụng</a>
+                        <a>Các cách xem</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Quyền riêng tư</a>
+                        <a>Điều khoản sử dụng</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Tùy chọn cookie</a>
+                        <a>Quyền riêng tư</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Thông tin doanh nghiệp</a>
+                        <a>Tùy chọn cookie</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Liên hệ với chúng tôi</a>
+                        <a>Thông tin doanh nghiệp</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Kiểm tra tốc độ</a>
+                        <a>Liên hệ với chúng tôi</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Thông báo pháp lý</a>
+                        <a>Kiểm tra tốc độ</a>
                     </li>
                     <li class="col-6 col-sm-4 col-md-3">
-                        <a href="#">Chỉ có trên TheMovies</a>
+                        <a>Thông báo pháp lý</a>
+                    </li>
+                    <li class="col-6 col-sm-4 col-md-3">
+                        <a>Chỉ có trên TheMovies</a>
                     </li>
                 </ul>
-
+    
                 <div class="row">
                     <div class="col-12">
                         <div class="design-by">
-                            Design by HuanPT
+                            &copy; by HuanPT
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    
+    
     </footer>
+
     <script type="module" src="./assets/js/account.js"></script>
 </body>
 

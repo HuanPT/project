@@ -10,7 +10,14 @@ import * as common from "./common";
 import { getDocs, collection, doc } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
-import { isEmailValid, loading, headerOnTop } from "./common";
+import {
+  isEmailValid,
+  hasText,
+  loading,
+  headerOnTop,
+  toggleShowPass,
+  MIN_LENGTH_PASS,
+} from "./common";
 
 import {
   updateProfile,
@@ -39,7 +46,14 @@ const formConfirm = document.querySelector(".confirm__form");
 const listFormEmail = document.querySelectorAll(".email__form");
 const createPassword = document.querySelector(".createPassword__form");
 const successPassword = document.querySelector(".successPassword__form");
-const MIN_LENGTH_PASS = 6;
+
+const autoClick = () => {
+  const hashTag = location.hash;
+  if (hashTag == "#login") {
+    return btn.click();
+  }
+  return;
+};
 
 const tagInput = () => {
   const inputs = document.querySelectorAll("input");
@@ -123,21 +137,6 @@ const tagInput = () => {
         }
       });
     }
-  });
-};
-
-const hasText = () => {
-  const input = document.querySelectorAll(".input-tag");
-
-  input.forEach((item) => {
-    const parent = item.closest(".label__input");
-
-    if (item.value) parent.classList.add("has-txt");
-
-    item.addEventListener("change", (e) => {
-      if (e.target.value) parent.classList.add("has-txt");
-      else parent.classList.remove("has-txt");
-    });
   });
 };
 
@@ -314,6 +313,8 @@ const loginForm = () => {
       signInWithEmailAndPassword(auth, email, pass)
         .then((UserCredential) => {
           console.log(UserCredential);
+          const user = UserCredential.user;
+          console.log(user);
           common.showSuccessToast("Đăng nhập thành công!");
         })
         .then(() => {
@@ -340,64 +341,16 @@ const loginForm = () => {
   });
 };
 
-const toggleShowPass = () => {
-  const has = document.querySelectorAll(".has__password-toggle");
-
-  has.forEach((item) => {
-    const toggle = item.querySelector(".btn__password-toggle");
-    const input = item.querySelector("input");
-    const txtErr = item.nextElementSibling;
-    hasText();
-
-    input.addEventListener("focus", (e) => {
-      e.preventDefault();
-      toggle.classList.toggle("d-none");
-    });
-
-    input.addEventListener("change", (e) => {
-      e.preventDefault();
-      const length = e.target.value.trim().length;
-      if (length < MIN_LENGTH_PASS) {
-        input.style.border = "0.2rem solid #e87c03";
-        txtErr.innerText = `Mật khẩu phải có độ dài ít nhất ${MIN_LENGTH_PASS} ký tự.`;
-      } else {
-        input.style.border = "";
-        txtErr.innerText = "";
-      }
-    });
-
-    input.addEventListener("blur", (e) => {
-      e.preventDefault();
-      if (!e.target.value.trim()) {
-        e.target.value = "";
-        input.style.border = "";
-        txtErr.innerText = "";
-      }
-    });
-
-    toggle.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      toggle.innerText == "Hiện"
-        ? setTimeout(() => {
-            toggle.innerText = "Ẩn";
-            input.type = "text";
-            input.focus();
-          }, 100)
-        : toggle.innerText == "Ẩn"
-        ? setTimeout(() => {
-            toggle.innerText = "Hiện";
-            input.type = "password";
-            input.focus();
-          }, 100)
-        : undefined;
-    });
-
-    input.addEventListener("blur", (e) => {
-      e.preventDefault();
-      toggle.innerText = "Hiện";
-      input.type = "password";
-      toggle.classList.toggle("d-none");
-    });
+const forgetEmail = () => {
+  const btnForgot = document.querySelector(".form__btn-send");
+  btnForgot.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.querySelector("#email__forget").value;
+    if (isEmailValid(email)) {
+      common.showInfoToast("Chức năng đang được hoàn thiện.");
+    } else {
+      common.showWarningToast("Email chưa chính xác.");
+    }
   });
 };
 
@@ -412,6 +365,7 @@ const btns = () => {
   btnLoginNow();
   registerForm();
   loginForm();
+  forgetEmail();
 };
 
 const downloadApp = () => {
@@ -427,4 +381,5 @@ window.addEventListener("load", () => {
   loading(0.2);
   headerOnTop();
   faqQuestions();
+  autoClick();
 });

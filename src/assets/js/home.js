@@ -3,6 +3,7 @@ import "@assets/css/home.css";
 
 import * as api from "./api.js";
 import "@fortawesome/fontawesome-free/js/all.min.js";
+import "@lib/Owlcarousel2/owl.carousel.min.js";
 
 import "bootstrap/dist/js/bootstrap.min.js";
 import * as customCarousel from "./customCarousel.js";
@@ -13,7 +14,8 @@ import {
   navMobile,
   headerOnTop,
   loading,
-  getUser
+  getUser,
+  loginBtn,
 } from "./common";
 
 const main = document.querySelector(".main");
@@ -138,7 +140,7 @@ const makeCardsBig = (id, data) => {
       if (i == 0) {
         colMd5.innerHTML += `
           <div class="card__movie card__movie-big">
-          <a href="/movie.html?${item.id}" title="${item.title}">
+          <a href="/movie.html?${item.id}" id="${item.id}" title="${item.title}">
             <img src="${api.imgOriginalUrl}${item.backdrop_path}" alt="${item.title}">
             <p class="movie-title">${item.title}</p>
             <div class="icon-play">
@@ -152,7 +154,7 @@ const makeCardsBig = (id, data) => {
         rowG2.innerHTML += `
           <div class="col-6 col-md-4">
             <div class="card__movie">
-              <a href="/movie.html?${item.id}" title="${item.title}">
+              <a href="/movie.html?${item.id}" id="${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
@@ -167,7 +169,7 @@ const makeCardsBig = (id, data) => {
         rowG2.innerHTML += `
           <div class="col-6 col-md-4 gy-3">
             <div class="card__movie">
-              <a href="/movie.html?${item.id}" title="${item.title}">
+              <a href="/movie.html?${item.id}" id="${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
@@ -181,7 +183,7 @@ const makeCardsBig = (id, data) => {
         movieContainer.innerHTML += `
           <div class="col-6 col-md-3 gy-3">
             <div class="card__movie">
-              <a href="/movie.html?${item.id}" title="${item.title}">
+              <a href="/movie.html?${item.id}" id="${item.id}" title="${item.title}">
                 <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
                 <p class="movie-title">${item.title}</p>
                 <div class="icon-play">
@@ -231,7 +233,7 @@ const makeCardsSlide = (id, data) => {
     movieContainer.innerHTML += `
       <div class="item">
         <div class="card__movie">
-          <a href="/movie.html?${item.id}" title="${item.title}">
+          <a href="/movie.html?${item.id}" id="${item.id}" title="${item.title}">
             <img src="${api.imgUrlW533}${item.backdrop_path}" alt="${item.title}">
             <p class="movie-title">${item.title}</p>
             <div class="icon-play">
@@ -251,4 +253,5 @@ window.onload = () => {
   navMobile();
   headerOnTop();
   getUser();
+  loginBtn();
 };
