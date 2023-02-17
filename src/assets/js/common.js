@@ -37,9 +37,11 @@ export const navMobile = () => {
   const overlay = nav.querySelector(".overlay");
   btnNav.addEventListener("click", () => {
     nav.classList.toggle("hidden");
+    document.body.style.overflow = "hidden";
   });
   overlay.addEventListener("click", () => {
-    nav.classList.toggle("hidden");
+    nav.classList.add("hidden");
+    document.body.style.overflow = "";
   });
 };
 
@@ -90,7 +92,7 @@ export function backGoToTop() {
   const btnBackToTop = document.querySelector("#back__to-top");
   window.addEventListener("scroll", () => {
     if (document.documentElement.scrollTop > 600) {
-      btnBackToTop.style.opacity = 0.8;
+      btnBackToTop.style.opacity = 0.6;
       btnBackToTop.style.transform = "translateY(0)";
     } else {
       btnBackToTop.style.opacity = 0;

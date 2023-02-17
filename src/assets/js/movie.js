@@ -185,7 +185,7 @@ const infoGenres = (data) => {
 
 const infoCountry = (data) => {
   const genresDiv = document.querySelector(".countries");
-  console.log(data);
+  // console.log(data);
   let length = data.production_countries.length;
   for (let i = 0; i < length; i++) {
     genresDiv.innerHTML += `
@@ -341,6 +341,8 @@ const callApiTrailer = () => {
     `;
       }
       wrapIframe.append(item);
+
+      iframes();
     });
 };
 
@@ -422,8 +424,6 @@ const addToFavorites = (id) => {
       return;
     }
 
-    console.log(user);
-
     const toggle = () => {
       addFavorite.classList.toggle("d-none");
       let isFavorite = !addFavorite.classList.contains("d-none");
@@ -469,7 +469,7 @@ const addToFavorites = (id) => {
       getDoc(favoritesRef).then((docSnap) => {
         if (docSnap.exists()) {
           const favorites = docSnap.data().favorites;
-          console.log(favorites); // this will log the favorites array
+          // console.log(favorites); // this will log the favorites array
           if (favorites.includes(id)) {
             addFavorite.classList.remove("d-none");
             des.innerHTML = "Xóa khỏi yêu thích";
@@ -500,7 +500,7 @@ const addToBookmarks = (id) => {
       return;
     }
 
-    console.log(user);
+    // console.log(user);
 
     const toggle = () => {
       addBookmark.classList.toggle("d-none");
@@ -547,7 +547,7 @@ const addToBookmarks = (id) => {
       getDoc(bookmarksRef).then((docSnap) => {
         if (docSnap.exists()) {
           const bookmarks = docSnap.data().bookmarks;
-          console.log(bookmarks); // this will log the favorites array
+          // console.log(bookmarks); // this will log the favorites array
           if (bookmarks.includes(id)) {
             addBookmark.classList.remove("d-none");
             des.innerHTML = "Xóa khỏi danh sách xem";
@@ -563,6 +563,14 @@ const addToBookmarks = (id) => {
     getBookmarks(user.uid);
     bookmarkBtn.addEventListener("click", toggle);
   });
+};
+
+const iframes = () => {
+  const items = document.querySelector(".item");
+  console.log(items);
+  // items.forEach((item) => {
+  //   console.log(item);
+  // });
 };
 
 window.onload = () => {

@@ -116,7 +116,7 @@ a.btn-red {
 
 .hidden {
     opacity: 0;
-    right: -35%;
+    right: -40%;
     visibility: hidden;
 }
 
@@ -427,7 +427,7 @@ a.btn-red {
 
 /* Carousel Css */
 .owl-theme .owl-nav {
-    color: var(--orange-color);
+    color: var(--white-color);
     font-size: 2.7rem;
     margin: 0;
 }
@@ -457,11 +457,12 @@ a.btn-red {
 .owl-theme .owl-nav [class*=owl-]:hover {
     background: transparent;
     border-radius: 50%;
+    color: var(--orange-color);
 }
 
 .owl-next span,
 .owl-prev span {
-    padding: 0.15rem 1.107rem;
+    padding: 0.1rem 1.057rem;
     background: rgb(0 0 0 / 50%);
     border-radius: 50%;
 }
@@ -555,7 +556,7 @@ a.btn-red {
     padding: 0rem 1rem 0 1.6rem;
 }
 
-.bookmark-rate {
+.option__add {
     position: absolute;
     top: 0;
     left: 0;
@@ -568,8 +569,8 @@ a.btn-red {
     background: linear-gradient(180deg, rgb(0, 0, 0), transparent);
 }
 
-.bookmark {
-    z-index: 8;
+.bookmark__wrap {
+    z-index: 3;
     font-size: 1.8rem;
     color: var(--orange-color);
 }

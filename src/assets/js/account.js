@@ -38,8 +38,15 @@ import {
   toggleShowPass,
   showSuccessToast,
   showInfoToast,
+  showErrorToast,
 } from "./common.js";
-import { onAuthStateChanged, updatePassword } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  updatePassword,
+  reauthenticateWithCredential,
+  AuthCredential,
+  EmailAuthProvider,
+} from "firebase/auth";
 
 const render = async (items, listId, listName) => {
   const itemMovies = await Promise.all(
@@ -269,22 +276,45 @@ const changePass = () => {
   toggleShowPass();
   hasText();
 
-  const btnSave = document.querySelector(".login__btn-save").firstElementChild;
-  console.log(btnSave);
+  const save = document.querySelector(".login__btn-save");
+  const btnSave = save.firstElementChild;
   btnSave.addEventListener("click", (e) => {
-    const pass = document.querySelector("#new__password").value;
-    e.preventDefault();
-    if (pass >= MIN_LENGTH_PASS) {
-      updatePassword(user, pass)
-        .then(() => {
-          showSuccessToast("Đổi mật khẩu thành công!");
-        })
-        .catch((err) => {
-          showInfoToast("Chức năng đang được hoàn thiện!");
-        });
-    } else {
-      showWarningToast("Đã xảy ra lỗi");
-    }
+    let oldPass = document.querySelector("#old__password").value;
+    const credential = EmailAuthProvider.credential(user.email, oldPass);
+
+    let newPass = document.querySelector("#new__password").value;
+    let confirmPass = document.querySelector("#enter__password").value;
+
+    reauthenticateWithCredential(user, credential)
+      .then(() => {
+        if (newPass === oldPass) {
+          return showErrorToast(
+            "lỗi",
+            "Mật khẩu mới không được trùng với mật khẩu cũ."
+          );
+        } else if (newPass !== confirmPass) {
+          return showErrorToast("Lỗi", "Mật khẩu xác nhận không khớp.");
+        } else if (newPass.length < MIN_LENGTH_PASS) {
+          return showWarningToast(
+            `Mật khẩu mới phải có ít nhất ${MIN_LENGTH_PASS} kí tự`
+          );
+        } else {
+          // Thực hiện cập nhật mật khẩu
+          updatePassword(user, newPass)
+            .then(() => {
+              showSuccessToast("Đổi mật khẩu thành công!");
+              save.nextElementSibling.click();
+            })
+            .catch((error) => {
+              console.error(error);
+              showInfoToast("Đã xảy ra lỗi khi cập nhật mật khẩu");
+            });
+        }
+      })
+      .catch((err) => {
+        showInfoToast("Mật khẩu cũ không chính xác");
+        console.error(err);
+      });
   });
 };
 
@@ -298,7 +328,7 @@ const hiddenShowForm = () => {
   });
 
   btnCancer.addEventListener("click", () => {
-    btnCancer.closest(".changePassword__form").classList.add("d-none");
+    btnCancer.closest(".changePassword__form").classList.toggle("d-none");
     input.value = "";
     input.style.border = "0";
   });

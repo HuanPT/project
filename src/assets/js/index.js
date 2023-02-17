@@ -22,7 +22,7 @@ import {
 
 import {
   updateProfile,
-  updateCurrentUser,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
@@ -43,10 +43,7 @@ const register = document.querySelector(".register");
 const formList = document.querySelector(".form__list");
 const formLogin = document.querySelector(".login__form");
 const formForget = document.querySelector(".forget__form");
-const formConfirm = document.querySelector(".confirm__form");
 const listFormEmail = document.querySelectorAll(".email__form");
-const createPassword = document.querySelector(".createPassword__form");
-const successPassword = document.querySelector(".successPassword__form");
 
 const autoClick = () => {
   const hashTag = location.hash;
@@ -67,7 +64,7 @@ const tagInput = () => {
 
     if (remember) {
       const form = parent.closest(".login__form");
-      const email = form.querySelector(".email__login");
+      const email = form.querySelector("#email__login");
       const pass = form.querySelector(".password__login");
       const btnLogin = form.querySelector(".login__btn");
 
@@ -98,6 +95,7 @@ const tagInput = () => {
       });
     }
     if (email) {
+      input.value.trim() ? hasText() : undefined;
       input.addEventListener("change", (e) => {
         e.preventDefault();
         let value = e.target.value.trim();
@@ -195,6 +193,10 @@ const closeBtn = () => {
 const btnHelp = () => {
   const help = document.querySelector(".help-link");
   help.addEventListener("click", () => {
+    const email = document.querySelector("#email__login").value;
+    const forget = document.querySelector("#email__forget");
+    isEmailValid(email) ? (forget.value = email) : (forget.value = "");
+    tagInput();
     formLogin.classList.add("d-none");
     formLogin.nextElementSibling.classList.toggle("d-none");
   });
@@ -307,7 +309,7 @@ const registerForm = () => {
 const loginForm = () => {
   formLogin.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = formLogin.querySelector(".email__login").value;
+    const email = formLogin.querySelector("#email__login").value;
     const pass = formLogin.querySelector(".password__login").value;
     if (isEmailValid(email) && pass.length >= MIN_LENGTH_PASS) {
       loading(0.3);
@@ -343,14 +345,36 @@ const loginForm = () => {
 };
 
 const forgetEmail = () => {
-  const btnForgot = document.querySelector(".form__btn-send");
-  btnForgot.addEventListener("click", (e) => {
+  const forget = document.querySelector(".form__btn-send");
+  const btnForget = forget.firstElementChild;
+  const parent = forget.parentElement;
+  const broParent = parent.previousElementSibling;
+
+  btnForget.addEventListener("click", (e) => {
     e.preventDefault();
-    const email = document.querySelector("#email__forget").value;
+    let email = document.querySelector("#email__forget").value;
     if (isEmailValid(email)) {
-      common.showInfoToast("Chức năng đang được hoàn thiện.");
+      loading(0.5);
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          common.showSuccessToast("Gửi email thành công!");
+          email = "";
+          parent.classList.toggle("d-none");
+          broParent.classList.toggle("d-none");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       common.showWarningToast("Email chưa chính xác.");
+    }
+  });
+
+  const email = document.querySelector("#email__forget");
+  email.addEventListener("keypress", (e) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      btnForget.click();
     }
   });
 };

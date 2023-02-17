@@ -54,7 +54,6 @@ let countries = [
 ];
 
 let params = getURLparams();
-console.log(typeof params);
 
 let keyword = params.q;
 
@@ -64,7 +63,10 @@ let getYear = params.primary_release_year;
 
 let getCountry = params.with_origin_country;
 
-let page = 1;
+let page = params.page;
+if (page == undefined) {
+  page = 1;
+}
 
 const isQuery = "q" in params;
 const isDay = "day" in params;
@@ -73,7 +75,6 @@ const isLatest = "latest" in params;
 const isGenres = "with_genres" in params;
 const isYear = "primary_release_year" in params;
 const isCountry = "with_origin_country" in params;
-
 const searchKeyword = () => {
   return fetch(
     api.searchMovie +
@@ -92,7 +93,7 @@ const searchKeyword = () => {
 };
 
 const searchTrendingDay = () => {
-  return fetch(api.trendingDay + `&page=${page}`)
+  return fetch(api.trendingDay + `&page=1`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -101,7 +102,7 @@ const searchTrendingDay = () => {
 };
 
 const searchTrendingWeek = () => {
-  return fetch(api.trendingWeek + `&page=${page}`)
+  return fetch(api.trendingWeek + `&page=1`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -110,7 +111,7 @@ const searchTrendingWeek = () => {
 };
 
 const searchLatest = () => {
-  return fetch(api.popular + `&page=${page}`)
+  return fetch(api.popular + `&page=1`)
     .then((res) => res.json())
     .then((data) => {
       renderListSearch(data);
@@ -195,6 +196,9 @@ const keyWord = (data) => {
       if (country)
         return (title.innerHTML = `Danh sách phim của ${country.native_name}:`);
       else return (title.innerHTML = `Danh sách phim của quốc gia khác:`);
+    }
+    if (isLatest) {
+      return (title.innerHTML = `Danh sách phim phổ biến:`);
     }
   }
 };

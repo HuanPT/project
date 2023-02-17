@@ -917,6 +917,13 @@ input[type=checkbox]:checked::before {
     transition: all ease .7s;
 }
 
+#back__to-top>* {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
 #back__to-top:hover {
     opacity: 1 !important;
     background: var(--red-color);

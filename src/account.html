@@ -248,7 +248,6 @@
                                 <ul class="user__profile-list">
                                     <li>
                                         <p>Ngày gia nhập: <b class="join__date">05/09/2021 19:02</b></p>
-
                                     </li>
                                     <li>
                                         <p>email: <b class="user__email">test@gmail.com</b></p>
@@ -260,10 +259,10 @@
                                             <div class="password__group  login__input-group">
                                                 <div class="wrap__label has__password-toggle">
                                                     <label class="label__input">
-                                                        <input type="password" name="new__password" id="new__password"
+                                                        <input type="password" name="old__password" id="old__password"
                                                             tabindex="0" class="input-tag" maxlength="50" minlength="5">
                                                         <span class="place">
-                                                            Mật khẩu
+                                                            Mật khẩu cũ
                                                         </span>
                                                     </label>
                                                     <button type="button"
@@ -275,15 +274,28 @@
                                             <div class="password__group  login__input-group">
                                                 <div class="wrap__label has__password-toggle">
                                                     <label class="label__input">
-                                                        <input type="password" name="enter__password"
-                                                            id="enter__password" tabindex="0" class="input-tag"
+                                                        <input type="password" name="new__password"
+                                                            id="new__password" tabindex="0" class="input-tag"
                                                             maxlength="50" minlength="5">
                                                         <span class="place">
-                                                            Xác nhận mật khẩu
+                                                            Mật khẩu mới
                                                         </span>
                                                     </label>
                                                     <button type="button"
                                                         class="btn btn__password-toggle d-none">Hiện</button>
+                                                </div>
+                                                <span class="input-error"></span>
+                                            </div>
+                                            <div class="password__group  login__input-group">
+                                                <div class="wrap__label has__password-toggle">
+                                                    <label class="label__input">
+                                                        <input type="password" name="enter__password" id="enter__password" tabindex="0" class="input-tag" maxlength="50"
+                                                            minlength="5">
+                                                        <span class="place">
+                                                            Xác nhận lại mật khẩu
+                                                        </span>
+                                                    </label>
+                                                    <button type="button" class="btn btn__password-toggle d-none">Hiện</button>
                                                 </div>
                                                 <span class="input-error"></span>
                                             </div>
