@@ -34,9 +34,20 @@
         padding: 3rem 2rem;
     }
 
+    .cast {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
 }
 
 @media screen and (min-width: 768px) {
+
+    #back__to-top {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.8rem;
+    }
+
     .header__top-wrap {
         margin: 0 1rem;
     }
@@ -158,7 +169,7 @@
     }
 
     .cast {
-        gap: 4rem;
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -235,7 +246,7 @@
     }
 
     .cast {
-        gap: 5rem;
+        grid-template-columns: repeat(6, 1fr);
     }
 
 }

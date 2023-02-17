@@ -16,6 +16,7 @@ import {
   loading,
   getUser,
   loginBtn,
+  backGoToTop,
 } from "./common";
 
 const main = document.querySelector(".main");
@@ -254,4 +255,5 @@ window.onload = () => {
   headerOnTop();
   getUser();
   loginBtn();
+  backGoToTop();
 };

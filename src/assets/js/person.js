@@ -22,6 +22,7 @@ import {
   loading,
   getUser,
   loginBtn,
+  backGoToTop
 } from "./common";
 
 let personId = location.search.replace("?", "");
@@ -149,5 +150,6 @@ window.onload = () => {
   navMobile();
   loading();
   getUser();
+  backGoToTop();
   loginBtn();
 };

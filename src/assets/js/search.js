@@ -19,6 +19,7 @@ import {
   getUser,
   loginBtn,
   navMobile,
+  backGoToTop,
 } from "./common";
 
 let countries = [
@@ -63,7 +64,7 @@ let getYear = params.primary_release_year;
 
 let getCountry = params.with_origin_country;
 
-let page = params.page;
+let page = 1;
 
 const isQuery = "q" in params;
 const isDay = "day" in params;
@@ -72,8 +73,6 @@ const isLatest = "latest" in params;
 const isGenres = "with_genres" in params;
 const isYear = "primary_release_year" in params;
 const isCountry = "with_origin_country" in params;
-
-console.log(isGenres, isDay, isQuery, isWeek, isYear, isCountry);
 
 const searchKeyword = () => {
   return fetch(
@@ -114,7 +113,6 @@ const searchLatest = () => {
   return fetch(api.popular + `&page=${page}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       renderListSearch(data);
     });
 };
@@ -213,7 +211,7 @@ const renderListSearch = (data) => {
   const items = data.results;
   const list = document.querySelector(".list__film");
   list.innerHTML = "";
-  items.forEach((item, i) => {
+  items.forEach((item) => {
     if (item.backdrop_path == null) {
       item.backdrop_path = item.poster_path;
       if (item.backdrop_path == null) {
@@ -429,4 +427,5 @@ window.onload = () => {
   getUser();
   loginBtn();
   navMobile();
+  backGoToTop();
 };

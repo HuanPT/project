@@ -28,6 +28,7 @@ import {
   navMobile,
   headerOnTop,
   loginBtn,
+  backGoToTop,
   recommendations,
 } from "./common";
 import * as api from "./api.js";
@@ -98,6 +99,7 @@ const controller = () => {
   navMobile();
   headerOnTop();
   loginBtn();
+  backGoToTop();
   history(getId);
   filmInfo(getId);
   recommendations(getId, "recommendations");

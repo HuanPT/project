@@ -32,6 +32,8 @@ import {
   loginBtn,
   showWarningToast,
   recommendations,
+  showSuccessToast,
+  backGoToTop,
 } from "./common.js";
 
 let movieId = location.search.replace("?", "");
@@ -428,7 +430,9 @@ const addToFavorites = (id) => {
       if (isFavorite) {
         des.innerHTML = "Xóa khỏi yêu thích";
         addMovieToFavorites(user.uid, id);
+        showSuccessToast("Đã thêm vào danh sách yêu thích.");
       } else {
+        showSuccessToast("Đã xóa khỏi danh sách yêu thích.");
         des.innerHTML = "Thêm vào yêu thích";
         removeMovieFromFavorites(user.uid, id);
       }
@@ -502,9 +506,11 @@ const addToBookmarks = (id) => {
       addBookmark.classList.toggle("d-none");
       let isBookmark = !addBookmark.classList.contains("d-none");
       if (isBookmark) {
+        showSuccessToast("Đã Thêm vào danh sách xem.");
         des.innerHTML = "Xóa khỏi danh sách xem";
         addMovieToBookmarks(user.uid, id);
       } else {
+        showSuccessToast("Đã xóa khỏi danh sách xem.");
         des.innerHTML = "Thêm vào danh sách xem";
         removeMovieFromBookmarks(user.uid, id);
       }
@@ -568,6 +574,7 @@ window.onload = () => {
   headerOnTop();
   callApiTrailer();
   loading();
+  backGoToTop();
   recommendations(movieId, "similar");
   getUser();
   loginBtn();

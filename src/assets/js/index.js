@@ -17,6 +17,7 @@ import {
   headerOnTop,
   toggleShowPass,
   MIN_LENGTH_PASS,
+  backGoToTop,
 } from "./common";
 
 import {
@@ -382,4 +383,5 @@ window.addEventListener("load", () => {
   headerOnTop();
   faqQuestions();
   autoClick();
+  backGoToTop();
 });

@@ -194,11 +194,11 @@
 }
 
 .cast {
-    display: flex;
+    display: grid;
     gap: 2rem;
     list-style: none;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .actor {

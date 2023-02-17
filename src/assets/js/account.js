@@ -28,7 +28,7 @@ import {
   navMobile,
   headerOnTop,
   selectedHash,
-  backToTop,
+  backGoToTop,
   loading,
   getUser,
   loginBtn,
@@ -313,5 +313,6 @@ window.onload = () => {
   loginBtn();
   loading();
   getUser();
+  backGoToTop();
   selectedHash();
 };

@@ -86,6 +86,22 @@ export function headerOnTop() {
   });
 }
 
+export function backGoToTop() {
+  const btnBackToTop = document.querySelector("#back__to-top");
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 600) {
+      btnBackToTop.style.opacity = 0.8;
+      btnBackToTop.style.transform = "translateY(0)";
+    } else {
+      btnBackToTop.style.opacity = 0;
+      btnBackToTop.style.transform = "translateY(5rem)";
+    }
+  });
+  btnBackToTop.addEventListener("click", () => {
+    backToTop();
+  });
+}
+
 export function getURLparams() {
   let params = {};
   let query = location.search.substring(1);
@@ -192,7 +208,7 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 
   const toast = document.createElement("div");
   toast.classList.add("toast", "show", `toast--${type}`);
-  toast.style.animation = `slideInLeft ease 0.3s, fadeOut linear 1s ${(
+  toast.style.animation = `slideDropDown ease 0.3s, fadeOut linear 1s ${(
     duration / 1000
   ).toFixed(2)}s forwards`;
 
