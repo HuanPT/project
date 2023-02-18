@@ -38,7 +38,7 @@ fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
+    // console.log(data);
     listInfo(data);
     avatar(data);
     personName(data);
@@ -110,7 +110,7 @@ fetch(
   });
 
 const cardMovie = (data) => {
-  console.log(data.cast);
+  // console.log(data.cast);
   const listCast = data.cast;
   const ul = document.querySelector(".list__film");
   // console.log(ul);

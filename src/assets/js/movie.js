@@ -37,7 +37,7 @@ import {
 } from "./common.js";
 
 let movieId = location.search.replace("?", "");
-console.log(movieId);
+// console.log(movieId);
 
 const formatString = (currentIndex, maxIndex) => {
   return currentIndex == maxIndex - 1 ? "" : ", ";
@@ -477,7 +477,7 @@ const addToFavorites = (id) => {
             addFavorite.classList.add("d-none");
           }
         } else {
-          console.log("No favorites found for user", userId);
+          // console.log("No favorites found for user", userId);
         }
       });
     };
@@ -555,7 +555,7 @@ const addToBookmarks = (id) => {
             addBookmark.classList.add("d-none");
           }
         } else {
-          console.log("No favorites found for user", userId);
+          // console.log("No favorites found for user", userId);
         }
       });
     };
@@ -567,7 +567,7 @@ const addToBookmarks = (id) => {
 
 const iframes = () => {
   const items = document.querySelector(".item");
-  console.log(items);
+  // console.log(items);
   // items.forEach((item) => {
   //   console.log(item);
   // });

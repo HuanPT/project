@@ -266,6 +266,7 @@ const registerForm = () => {
   const email = register.querySelector("#create__email");
   const pass = register.querySelector("#create__password");
   const btnLoginNow = document.querySelector(".login__now");
+  tagInput();
 
   register.addEventListener("submit", (e) => {
     e.preventDefault();
