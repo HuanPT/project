@@ -433,17 +433,19 @@ a.btn-red {
 }
 
 .owl-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: calc(100% - 2.3rem);
     margin: 0;
+    top: 50%;
+    height: 3.8rem;
     border-radius: 50%;
+    position: absolute;
+    right: calc(100% - 2.3rem);
+    transform: translateY(-50%);
 }
 
 .owl-next {
     position: absolute;
     top: 50%;
+    height: 3.8rem;
     margin: 0;
     transform: translateY(-50%);
     left: calc(100% - 2.3rem);

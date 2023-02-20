@@ -93,7 +93,7 @@ const searchKeyword = () => {
 };
 
 const searchTrendingDay = () => {
-  return fetch(api.trendingDay + `&page=1`)
+  return fetch(api.trendingDay + `&page=${page}`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -102,7 +102,7 @@ const searchTrendingDay = () => {
 };
 
 const searchTrendingWeek = () => {
-  return fetch(api.trendingWeek + `&page=1`)
+  return fetch(api.trendingWeek + `&page=${page}`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -111,7 +111,7 @@ const searchTrendingWeek = () => {
 };
 
 const searchLatest = () => {
-  return fetch(api.popular + `&page=1`)
+  return fetch(api.popular + `&page=${page}`)
     .then((res) => res.json())
     .then((data) => {
       renderListSearch(data);
@@ -298,7 +298,7 @@ const listCountry = (data) => {
   data.forEach((item) => {
     let codeItem = item.iso_3166_1;
 
-    console.log(item);
+    // console.log(item);
     if (codeItem == getCountry) {
       country.innerHTML += `
       <option value="${codeItem}" selected>${item.native_name}</option>

@@ -28,6 +28,7 @@ export const navSearchMobile = () => {
     if (e.target.value !== "") {
       window.location.href = `./search.html?q=${e.target.value}`;
     }
+    hasText();
   });
 };
 
@@ -178,6 +179,7 @@ export const toggleShowPass = () => {
             input.focus();
           }, 100)
         : undefined;
+      hasText();
     });
 
     input.addEventListener("blur", (e) => {
